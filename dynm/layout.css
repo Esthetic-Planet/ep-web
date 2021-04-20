@@ -1,0 +1,128 @@
+a:link {color:#379dfb;}   
+a:visited {color:#379dfb;}  
+a:hover {color:#91cbfb;} 
+a:active {color:#379dfb;} 
+
+#main {
+	width:937px;
+	margin:0 auto;
+	text-align:left;
+	vertical-align: bottom;
+}
+.temoignages{text-align:center; font-size:22px; color:#399DFB;}
+.left-menu-top{background-color:#F1F1F1;
+background-image:url('img/small-box-right.jpg');
+background-position:right center;
+background-repeat:repeat-y;
+font-size:14px;
+font-weight:bold;
+height:100%;
+padding:0 18px;
+width:166px;}
+ 
+.left-menu-top a:link {color:#999;}   
+.left-menu-top a:visited {color:#999;}  
+.left-menu-top a:hover {color:#379dfb;} 
+.left-menu-top a:active {color:#999;} 
+
+.left-menu-top-interventions{background-color:#F1F1F1;
+background-image:url("img/menu-left-right-bg.jpg");
+background-position:right center;
+background-repeat:repeat-y;
+font-size:14px;
+font-weight:bold;
+height:100%;
+text-align:left;
+line-height:32px;
+padding:0 0 0 21px;
+width:176px;}
+.left-menu-top-interventions a:link {color:#999; font-size: 12px;}
+.left-menu-top-interventions a:visited {color:#999; font-size: 12px;}
+.left-menu-top-interventions a:hover {color:#379dfb; font-size: 12px;}
+.left-menu-top-interventions a:active {color:#999; font-size: 12px;}
+
+.left-menu-cliniques {height:100%; padding:18px; padding-bottom:5px; padding-top:0px; width:161px; background-image:url(img/menu-left-right-bg.jpg); background-repeat:repeat-y; background-position:right; background-color:#f1f1f1;}
+
+.left-menu-cliniques a:link {color:#999; font-size: 12px; font-weight:bold;}
+.left-menu-cliniques a:visited {color:#999; font-size: 12px;font-weight:bold;}
+.left-menu-cliniques a:hover {color:#379dfb; font-size: 12px;font-weight:bold;}
+.left-menu-cliniques a:active {color:#999; font-size: 12px;font-weight:bold;}
+
+.left-menu-top-bg{background-image:url(img/menu-left-top.jpg);height:14px; width:197px;}
+.left-bottom-menu-bg{background-image:url(img/menu-left-bottom.jpg);width:197px; height:20px; background-repeat:no-repeat; }
+
+.column-1, .column-2, .column-3, .column-4, .col-1, .col-2, .col-3 {float:left;}
+.col-4 {float:right;}
+
+.column-1{ width:222px;}
+.column-2{ width:474px;}
+.column-3{
+	width:244px;
+	height: 100%;
+}
+.column-4{ width:875px; margin:0px; padding:0px;}
+
+/* ============================= page1 ===========================*/
+#page1 .col-1{ width:222px;}
+#page1 .col-2{ width:222px;}
+
+/* ============================= page2 ===========================*/
+#page2 .col-1{ width:127px;}
+#page2 .col-2{ width:127px;}
+#page2 .col-3{ width:127px;}
+
+/* ============================= page3 ===========================*/
+#page3 .col-1{ width:205px;}
+#page3 .col-2{ width:222px;}
+
+/* ============================= page5 ===========================*/
+#page5 .col-1{ width:197px;}
+#page5 .col-2{ width:197px;}
+
+/*------------------------------ NEW  -------------------------------*/
+#right-tail{ width:937px;}
+#socialmedia{float:right; margin-top:30px; margin-bottom:0px; width:299px;}
+/*menu*/
+#logo{float:left; margin-top:79px; width:282px;}
+#menu{float:right;
+font-size:12px;
+margin-top:10px;
+width:643px;}
+#menu a{color:red;}
+
+#menu a:link {color:#808080;}
+#menu a:visited {color:#808080;}
+#menu a:hover {color:#379dfb;}
+#menu a:active {color:#808080;}
+
+#menu ul{list-style:none; display:inline; float:right;}
+#menu li{list-style:none; display:inline; border-right:solid 1px #808080; padding:0 10px;}
+/*header*/
+
+#page-name{width:917px; float:left; padding-left:20px; margin:7px 0; font-weight:bold; text-align:left; color:#379dfb; font-size:12px;}
+.header-bg{float:left; background-image:url(img/imgs_03.jpg); height:146px; width:445px;}
+.header-bg ul{
+    color:#898989;
+float:left;
+font-size:14px;
+line-height:28px;
+list-style:none outside none;
+margin-right:0;
+padding:20px 29px 20px 20px;
+}
+
+.header-bg a:link {color:#898989; font-weight: bold;}
+.header-bg a:visited {color:#898989; font-weight: bold;}
+.header-bg a:hover {color:#379DFB; font-weight: bold;}
+.header-bg a:active {color:#898989; font-weight: bold;}
+
+.demande-de-devis{float:right;  height:76px; margin-top:5px; width:250px;}
+.rappel-immediat{float: right; height: 78px; width: 250px; }
+
+/*Container*/
+.container {width:937px; overflow:hidden; margin-bottom:17px;}
+
+/*footer*/
+#header {height:119px; width:937px;}
+
+#footer { height:203px; width:937px; float:left;}

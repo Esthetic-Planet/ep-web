@@ -1,0 +1,453 @@
+body{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+}
+
+body, ul, li{
+margin:0px;
+padding:0px;
+}
+.sitemap li{
+margin:0px;
+padding-left:15px;
+}
+.sitemap li li a{
+color:#666666;
+}
+.mainContainer {
+	width:1001px;
+}
+.mainContainer, #contentHeader, .cLink, .appLink {
+	margin:auto;
+}
+
+#main {
+background-color:#FFFFFF;
+width:979px;
+/*height:1342px;*/
+margin: 0 11px;
+}
+
+#header, #headerLogo{
+height:142px;
+}
+#headerLogo {
+ position:relative;
+}
+#headerLogo, .sideNav{
+width:211px;
+}
+
+#headerLogo, 
+#headerRight, 
+#bodyContentContainer, 
+.sideNav,
+.sideNav2, 
+#contentContainer, 
+#content, 
+#singleApp, 
+.singleAppText, 
+.jointAppText, 
+.floatL, 
+#floatLBox, 
+#jointApp,
+.ourservices,
+.footerclass{
+float:left;
+}
+
+.floatR, #centerText{
+float:right;
+}
+
+.clear, #bottomBody, #footer{
+clear:both;
+}
+
+#headerRight, #bodyContentContainer, #contentContainer, #bottomBody, #headerRight
+{
+width:768px;
+}
+
+#headerRight{
+height:141px;
+}
+
+#headerSearchBox{
+width:767px;
+height:92px;
+position:relative;
+}
+
+
+
+.sideNav{
+height:600px;
+}
+
+.sideNav2{
+width:210px;
+height:600px;
+padding-left:1px;
+position:relative;
+}
+
+.center{
+text-align:center;
+}
+
+#contentContainer{
+/*height:914px;*/
+position:relative
+}
+
+#content{
+width:557px;
+}
+
+#menuContainer{
+width:767px;
+height:49px;
+}
+
+#spaceSideNav1{
+height:10px;
+}
+
+#bottomBody{
+float:left; 
+}
+
+#rightBB{
+float:left; 
+width:208px;
+padding-bottom:2px;
+}
+
+#leftBB{
+ float:left; 
+ width:558px;
+}
+
+.tab{
+padding:0px 10px 0px 20px 
+}
+
+#footer{
+height:85px;
+}
+
+#floatLBox{ 
+ border-right:#CCCCCC solid 1px;
+ width:273px;
+ min-height:228px;
+ height:auto !important;
+ height:228px;
+}
+
+.bottomTB{
+width:233px; 
+padding:10px 20px; 
+margin:0px;
+}
+
+.bottomTB2{
+width:233px; 
+padding:10px 20px 10px 20px; 
+margin:0px;
+}
+
+.bottomTB img{
+margin:0px 10px 2px 0px;;
+}
+.bottomTB p {
+ margin:0px 0px;
+}
+#FirstName2, #LastName2, #EmailAddress2 {
+width:170px;
+}
+
+#emailForm input{
+width:80px;
+}
+#emailForm input#catlistbutton{
+width:auto;
+}
+#search{
+width:160px;
+}
+
+.formHolder{
+float:left; 
+width:90px; 
+padding:5px 0px 0px 0px;
+}
+
+.formSearch{
+float:right; 
+padding-top:5px;
+}
+
+#emailForm{
+padding:5px 0px 5px 15px;
+width:192px;
+min-height:70px;
+height:auto !important;
+height:70px;
+border-bottom:1px solid #CCCCCC;
+border-right:1px solid #CCCCCC;
+border-left:1px solid #CCCCCC;
+}
+
+.go{
+float:left; 
+margin:auto; 
+width:180px; 
+padding:3px 0px 0px 0px; 
+text-align:center;
+}
+.aboutus{
+width:273px;
+}
+
+.readmore{
+text-align:right; 
+padding:5px 10px 0px 0px;
+}
+
+.readmore a{
+text-decoration:none;
+}
+.readmore a:hover{
+text-decoration:underline;
+}
+
+.ourservices{
+width:282px;
+}
+
+#searchHolder{
+font-weight:bolder;
+color:#000033;
+width:200px;
+padding:40px 0px 0px 550px;
+}
+
+.footerclass a{
+color:#000000;
+text-decoration:none;
+}
+.footerclass {
+width:710px;
+padding:20px 0px 0px 10px; 
+font-size:11px; 
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.copyright {
+color:#666666;
+}
+
+#floatLBox a, .floatL a{
+color:#0000FF;
+text-decoration:none;
+}
+
+#floatLBox a:hover, .floatL a:hover{
+color:#0000FF;
+text-decoration:underline;
+}
+
+#contentHeader{
+width:540px; 
+padding-top:5px;
+}
+
+.bottomDivs, .bottomDivs2{
+float:right; 
+width:180px; 
+padding:12px 0px 0px 0px; 
+font-size:11px; 
+color:#666666;
+}
+
+.bottomDivs2{
+width:100px;
+}
+
+.border0{
+border:0px;
+}
+
+.gray{
+color:#666666;
+}
+
+#spaceSideNav2{
+border-left:1px #FFFFFF solid;
+border-right:1px #FFFFFF solid;
+height:6px;
+background-image:url(menubg.gif);
+}
+
+.upperContentInner{
+width:557px;
+/*height:116px;*/
+border:0px;
+}
+
+#ourservices{
+font-size:25px; 
+color:#000066;
+}
+
+.readtest{
+width:262px; 
+text-align:right; 
+padding:0px 20px 0px 0px;
+}
+
+
+/*jad*/
+.violet {
+	color: #453788;
+}
+.violetBold{
+	color:#453788;
+	font-weight:bold;
+}
+.violetBoldUnderlined{
+	color:#453788;
+	font-weight:bold;
+	text-decoration:underline;
+}
+.blackBoldUnderlined{
+	color:#000000;
+	font-weight:bold;
+	text-decoration:underline;
+}
+.emph {
+	font-style: italic;
+	font-weight: bold;
+}
+ul{
+	list-style:inside;
+}
+ul.small{
+	text-indent:25px;
+}
+#inContent{
+	width:463px;
+	background-color:#EAEAEA;
+	border:solid 1px #000000;
+	padding-left:10px;
+	padding-right:10px;
+}
+.aRed {
+	color:#FF0000;
+	text-decoration:none;
+	font-weight:bold;	
+}
+.aBlack {
+	font-weight:bold;	
+}
+.aBlack li a {
+    color:#000000;
+}
+.pMargin{
+	margin-left:30px;
+}
+
+p {
+	font-size:10pt;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+.cLink{
+	color:#FFFFFF;
+	width:auto;
+	height:25px;
+	text-decoration:none;
+	font-size:10pt;
+	font-weight:bold;
+	text-align:center;
+	padding-top:5px;
+}
+.cLink a {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.appLink{
+	width:324px;
+	height:75px;
+	text-align:center;
+	font-weight:bold;
+	padding:0px 0px 10px 0px;
+}
+#singleApp{
+	width:159px;
+	height:60px;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin-right:3px;
+}
+.singleAppText{
+	width:159px;
+	text-decoration:none;
+	color:#000000;
+	margin-right:3px;
+}
+#jointApp{
+	width:159px;
+	height:60px;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin-left:3px;
+}
+.jointAppText{
+	width:159px;
+	text-decoration:none;
+	color:#000000;
+	margin-left:3px;
+}
+#newslettertab {
+	width:500px;
+	text-align:center;
+	margin:auto;
+}
+#tab1{
+	width:300px;
+	float:left;
+}
+#tab2{
+	width:100px;
+	float:left;
+}
+#tab3{
+	width:100px;
+	float:left;
+}
+.calcbg {
+    padding:20px; 
+	background-color:#cdcdcd; 
+	width:450px; 
+	height:353px; 
+	margin:0px 0px 10px 0px;
+	position:relative;
+}
+.calcML {
+    width:220px; 
+	border:#afafaf 1px solid;
+}
+.calcHBg {
+    background-color:#857db0;
+}
+.calcHT {
+    padding:10px; 
+	color:#FFFFFF;
+}
+.calcCon {
+    background-color:#f3f3f3; 
+	padding:10px;
+}

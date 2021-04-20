@@ -1,0 +1,41 @@
+#php_value upload_max_filesize 100M 
+#php_value post_max_size 40M
+#php_value max_execution_time 400
+#php_value max_input_time 400
+#php_flag display_errors on
+#php_flag magic_quotes_gpc on
+#php_flag register_globals off
+#dynamic_rewrite_rule
+RewriteEngine on
+
+#User Category Urls
+
+
+rewriterule ^dental_clinics.html$  user_category.php?cat_id=2 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^hair_clinics.html$  user_category.php?cat_id=3 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^eye_clinics.html$  user_category.php?cat_id=4 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^plastic_surgery.html$  user_category.php?cat_id=6 [T=application/x-httpd-shtml] [R=301,L]
+
+#Clinic Urls
+
+
+rewriterule ^medx_clinic.html$  clinic.php?cat_id=10 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^abc_dental_clinic.html$  clinic.php?cat_id=13 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^pertfect-clinic.html$  clinic.php?cat_id=14 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^zed_eye_specialist.html$  clinic.php?cat_id=15 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^pasaret.html$  clinic.php?cat_id=16 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^dr-mwamba.html$  clinic.php?cat_id=17 [T=application/x-httpd-shtml] [R=301,L]
+rewriterule ^lupanzula.html$  clinic.php?cat_id=18 [T=application/x-httpd-shtml] [R=301,L]
+
+#Product Category Urls
+
+
+
+#Video Urls
+
+
+
+#Page Urls
+
+
+rewriterule ^index.html$  index.php [T=application/x-httpd-shtml] [R=301,L]

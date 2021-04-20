@@ -1,0 +1,1 @@
+[23-Apr-2010 08:08:32] PHP Warning:  getimagesize(/home/mosaicse/public_html/esthetic_planet/upload/user_images/15_or%20pic.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: No such file or directory in /home/mosaicse/public_html/esthetic_planet/includes/resize_image.php on line 5

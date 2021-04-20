@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* CSS Document */
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+}
+body {
+	background: #f7f7f7;
+	margin: 0px;
+}
+#page_holder{
+	background:url(../images/main-bg.jpg) no-repeat top center;
+}
+p, h1, h2, h3, h4, h5, h6, form, ul{
+	margin:0;
+	padding:0;
+}
+p{
+	line-height:17px;
+}
+.clear{
+	clear:both;
+}
+img{
+	border:0;
+}
+.pink{
+	color:#dc0679;
+}
+a{
+	color:#353535;
+	text-decoration:none;
+}
+a:hover{
+	color:#000;
+}
+
+/*page_holder*/
+#page_holder{
+	width:982px;
+	margin:auto;
+	background:url(../images/bg_image.gif) repeat-y;
+}
+#page_panel{
+	width:946px;
+	margin:auto;
+	background-color:#FFFFFF;
+}
+/*Top Header*/
+#top_header{
+	width:948px;
+	height:137px;
+	margin:auto;
+}
+#middle_area{
+	width:948px;
+	margin:auto;
+}
+#middle_area #left_part{
+	width:214px;
+	float:left;
+	margin-left:6PX;
+	margin-top:10PX;
+	overflow:hidden;
+}
+#middle_area #right_part{
+	width:700px;
+	float:left;
+}
+#right_part #content_area{
+	width:690px;
+	margin:auto;
+}
+#content_area .login_hea{
+	width:688px;
+	height:37px;
+	float:left;
+	border-bottom:1px solid #336699;
+	color:#336699;
+	font-size:25px;
+	padding-top:10px;
+	margin-bottom:20px;
+}
+
+/*contact form*/
+#form{
+	padding:1px 0px 0px 0px;
+}
+#form ul{
+	margin:0;
+	padding:0;
+}
+#form ul li{
+	list-style:none;
+	float:left;
+	padding:0px 0px 10px 5px;
+}
+.field_name{
+	width:75px;
+	text-align:left;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#8d8d8d;
+	margin-top:7px;
+}
+.field{
+	width:400px;
+	color:#999;
+}
+.textbox{
+	width:349px;
+	color:#666666;
+	height:25px;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../images/text_image.gif) no-repeat;
+	border:0px;
+	padding:8px 0px 0px 8px;
+}
+
+.submit{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	width:102px;
+	height:33px;
+	border:0;
+	font-size:12px;
+	color:#336699;
+	background:url(../images/but.gif) no-repeat;
+}
+
+
+<!--Servics Page-->
+#middle_area #services{
+	width:948px;
+	margin:auto;
+}
+#services #ser_content{
+	width:916px;
+	margin:16px;
+}
+#ser_content .login_hea{
+	width:916px;
+	height:37px;
+	float:left;
+	border-bottom:1px solid #336699;
+	color:#336699;
+	font-size:25px;
+	padding-top:10px;
+	margin-bottom:20px;
+}
+<!--Start Navi-->
+
+#left-nav {	
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding-top:10px;
+
+}
+#left-nav a{
+	width:190px;
+	padding-left:30px;
+	color:#666;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-transform:uppercase;
+	display:block;
+	line-height:35px;
+	background:url(../images/arrow.gif) no-repeat left center; 
+	background-position:20px 10px;
+	text-decoration:none;
+	background-color:#e9e9e9;
+	border-bottom:1px solid #cecece;
+	background-position:20px 15px;
+
+}
+#left-nav a:hover {
+	color:#000;
+	text-decoration:none;
+	background-color:#cbcbcb;
+}
+#ser_content #navi{
+	width:916px;
+	height:39px;
+	float:left;
+}
+#navi #left_corner{
+	width:9px;
+	height:39px;
+	float:left;
+	background:url(../images/left_cor.gif) no-repeat;
+}
+#navi #mid_corner{
+	width:893px;
+	height:32px;
+	float:left;
+	background:url(../images/mid_bg.gif) repeat-x;
+	padding-top:7px;
+}
+#mid_corner .left_but{
+	width:9px;
+	height:24px;
+	float:left;
+	background:url(../images/but_left.gif) no-repeat;
+}
+#mid_corner .mid_but{
+	height:16px;
+	float:left;
+	background:url(../images/but_mid.gif) repeat-x;
+	padding:4PX 6px 4PX 6PX;
+}
+#mid_corner .right_but{
+	width:9px;
+	height:24px;
+	float:left;
+	background:url(../images/but_right.gif) no-repeat;
+}
+#mid_corner .mid_but1{
+	height:24px;
+	width:418px;
+	float:left;
+	background:none;
+}
+#navi #right_corner{
+	width:9px;
+	height:39px;
+	float:left;
+	background:url(../images/right_cor.gif) no-repeat;
+}
+#ser_content #images_box{
+	width:690px;
+	margin:auto;
+	margin-top:20px;
+}
+#images_box .image1{
+	width:345px;
+	float:left;
+	margin-bottom:30px;
+	border-right:1px dotted #CCCCCC;
+}
+#images_box .image2{
+	width:325px;
+	float:right;
+	margin-bottom:30px;
+}
+
+<!--Clinics Page-->
+
+#services #clinic_page{
+	width:916px;
+	margin:16px;
+}
+#clinic_page #sea_left{
+	width:14px;
+	height:151px;
+	float:left;
+	background:url(../images/search_left_cor.gif) no-repeat;
+}
+#clinic_page #sea_mid{
+	width:884px;
+	height:151px;
+	float:left;
+	background:url(../images/search_mid_bg.gif) repeat-x;
+}
+#clinic_page #sea_right{
+	width:14px;
+	height:151px;
+	float:right;
+	background:url(../images/search_right_cor.gif) no-repeat;
+}
+
+

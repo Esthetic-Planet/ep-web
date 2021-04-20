@@ -1,0 +1,369 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;	
+}
+
+.top_strip{
+	background-color:#0f0607;
+}
+
+.header_bg{
+	/* background:#0f0607; */
+	background:#F0F0F0;
+	/*height:133px;*/	
+}
+
+.nav_bg{
+	background-image:url(../images/nav_bg.gif);
+	height:33px;
+	background-repeat:repeat-x;
+}
+
+.border_left{
+	border-right:1px solid #E5E5E5;
+}
+
+.grey_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#818181;
+}
+.grey_text a{
+	text-decoration:underline;
+	}
+.grey_text a:hover{
+	text-decoration:none;
+	}
+
+.admin_bg{
+	background-image:url(../images/admin_bg.jpg);
+	width:534px;
+	height:209px;
+	background-repeat:repeat-y;
+}
+
+.red_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#00768A;
+	}
+.footer_strip{
+	background-color:#ccc;
+}
+
+.footer_logo{
+	/* background-color:#2d2d2d;*/
+	background-color:#38b8c1;
+}
+
+.footer_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+}
+
+a.footer_link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+}
+a.footer_link:hover{
+	text-decoration:none;
+}
+.grey_bg{
+	background-color:#ECECEC;
+}
+h1{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#BF2400;
+	margin:0px;
+	padding-top:3px;
+	}
+	
+.catelist_bg{
+	background-image:url(../images/cate_bg.gif);
+	width:234px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+.pad15{
+	padding-left:15px;
+	padding-right:15px;
+}
+
+a.cat_link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#666666;
+	font-weight:bold;
+	text-decoration:none;
+}
+a.cat_link:hover{
+	color:#BF2400;
+}
+
+.left_headbg{
+	background:#bf2400;
+	height:25px;	
+}
+
+a.white_link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+	text-decoration:none;
+}
+a.white_link:hover{
+	color:#fff;
+	text-decoration:underline;
+}
+.white_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.white_text a{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+	text-decoration:none;
+}
+.white_text a:hover
+{
+	color:#ffffff;
+	text-decoration:underline;
+}
+a.white_text:hover
+{
+	color:#ffffff;
+	text-decoration:underline;
+}
+
+a.left_link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#000;
+	text-decoration:none;
+}
+a.left_link:hover{
+	color:#BF2400 ;
+	text-decoration:none;
+	}
+	
+a.grey_link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#8B8B8B;
+	text-decoration:none;
+}
+a.grey_link:hover{
+	color:#000;
+	text-decoration:none;
+	}
+	
+.search_box{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#454545;
+	padding-left:2px;
+	width:135px;
+	border:1px solid #7F9DB9;
+	background-color:#fff;
+}
+.blue12{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#751200;
+	font-weight:bold;
+}
+.submit_bg{
+	background-image:url(../images/submit_bg.gif);
+	width:64px;
+	height:21px;
+	background-repeat:no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#fff;
+	border:none;
+	paddin-bottom:3px;
+	font-weight:bold;
+}
+a.add_del{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+	text-decoration:none;
+	background-image:url(../images/add_button.gif);
+	width:125px;
+	height:20px;
+	background-repeat:no-repeat;
+	display:block;
+	padding-top:5px;
+	margin:0px;
+}
+a.add_del:hover{
+	background-image:url(../images/add_buttonred.gif);
+	width:125px;
+	height:20px;
+	background-repeat:no-repeat;
+	display:block;
+}
+.paging_bg{
+	background-image:url(../images/paging_bg.gif);
+	height:25px;
+	background-repeat:repeat-x;
+	}
+a.blue_textlink11{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#ffffff;
+	font-weight:bold;
+	text-decoration:none;
+}
+a.blue_textlink11:hover{
+	color:#000000;
+	text-decoration:underline;
+}
+.paging_number{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#000000;
+	font-weight:bold;
+	background-image:url(../images/paging_number.gif);
+	width:41px;
+	height:19px;
+	background-repeat:no-repeat;
+	border:none;
+}
+.border{
+	border:1px solid #DFDFDF;
+	}
+	
+.black_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+}
+
+
+.black_text a{
+display:block;
+color:#000;
+text-decoration:none;
+}
+
+
+.black_text a:hover{
+color:#8B8B8B;
+}
+
+
+
+.black_textx{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+
+.black_textx a{
+display:block;
+color:#B72214;
+font-weight:bold;
+text-decoration:underline;
+}
+
+.black_textx a:hover{
+color:#8B8B8B;
+}
+
+
+.normal_text_blue{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#333333;
+}
+
+.input_white{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#454545;
+	padding-left:2px;
+	border:1px solid #AAAAAA;
+	background-color:#fff;
+	padding:0px;
+	margin:0px;
+}
+
+.textarea2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	height:17px;
+	color:#0E619C;
+	font-weight:bold;
+	padding-left:2px;
+	border:1px solid #AAAAAA;
+	background-color:#ffffff;
+}
+.dark_grey{
+	background-color:#8E8E8E;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+	}
+.light_pink{
+	background-color:#E47282;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	font-weight:bold;
+	}
+.pink_text{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FF425D;
+	font-weight:bold;
+}
+.link_blue{
+color:#009AB6;
+font-size:12px;
+font-weight:bold;
+line-height:20px;
+}
+.link_blue a{
+display:block;
+color:#009AB6;
+text-decoration:none;
+}
+.link_blue a:hover{
+color:#8B8B8B;
+}
+
+.link_grey{
+color:#8B8B8B;
+font-size:11px;
+font-weight:bold;
+line-height:20px;
+}
+.link_grey a{
+display:block;
+color:#8B8B8B;
+text-decoration:none;
+}
+.link_grey a:hover{
+color:#009AB6;
+}

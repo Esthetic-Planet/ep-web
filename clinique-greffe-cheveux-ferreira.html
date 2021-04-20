@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <!-- Page Title -->
+  <title>Clinique greffe de cheveux au Portugal - Dr. Bruno Ferreira</title>
+
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="description" content="Dr Bruno Ferreira, expert en greffe de cheveux FUE, FUT, greffe de barbe à Porto. Informations sur clinique et tarifs." />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="chirurgie esthetique et dentaire www.esthetic-planet.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <script  src="js/head.js" type="text/javascript"></script>
+  <script  src="js/resultat.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript">head();</script>
+
+
+</head>
+
+<body>
+  <script type="text/javascript">menu();</script>
+  <style>
+
+  .banner-outer{background-image: url(images/clinic-header.jpg) !important;}
+
+
+  .btn1 {
+    display: block !important;
+
+  }
+  @media screen  and (max-width: 767px){
+    .banner-outer{
+      background-position: 8% 36%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: auto !important;}
+      .etiquette{bottom:0px !important;}
+      .header-top-outer{padding-bottom:25px !important}
+      p{font-size: 15px !important;}
+    }
+
+  </style>
+
+  <div id='app'>
+
+    <!-- LOADER -->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    <!-- END OF LOADER -->
+    <!-- HEADER -->
+    <header class="header1">
+      <div class="header-wrapper">
+        <div class="banner-outer" style="height: 270px;">
+
+          <div class="header-content">
+            <div class="container">
+              <div class="header-top-outer clearfix">
+
+
+              </div>
+
+              <div class="col-sm-11 fond-header">
+                <!-- HEADER FORM -->
+                <h1 class="txth1">Clinique de greffe de cheveux au Portugal - {{ doctor.name }}</h1>
+                <p class="text-justify txtpara">{{ doctor.description }}</p>
+
+                <!-- END OF HEADER FORM-->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- PROCEDURE greffe de cheveux -->
+    <section class="background1" id="procedure-section" class="table-responsive">
+      <div class="container" id="cheveux">
+        <!--grey box 2-->
+
+
+
+
+
+        <h2 id="techniques" class="border-titre">PHOTOS DE LA CLINIQUE DU DR. Ferreira à Porto</h2></br>
+
+
+        <div class='row'>
+          <div class="col-md-3 col-6 mb-2" v-for="item in galery">
+            <a :href='item.box' data-lightbox="galery-clinic" > <img class="photo-clinique img-fluid" :src="item.min" alt="Clinique du Dr Bisanga"></a>
+          </div>
+        </div>
+
+
+
+        <div class="doctor-presentation clearfix">
+          <h2 class="border-titre">PRÉSENTATION DU {{ doctor.name }} </h2>
+          <p>
+            <img :src="doctor.portrait.url" class="float-left img-fluid m-2" :alt="doctor.portrait.alt">
+            {{ doctor.description }}
+          </p>
+
+        </div>
+
+      <h2  id="retour" class="border-titre mb-0">PRIX GREFFE DE CHEVEUX À {{doctor.location.city}} clinique greffe de cheveux</h2></br>
+
+      <table class="tableau-prix">
+        <thead>
+          <tr>
+            <th style="background: rgba(63, 71, 94, 0.6);">Type de FUE</th>
+            <th style="background: rgba(63, 71, 94, 0.6);">{{ doctor.name }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FUE manuelle</td>
+            <td>2.50€/greffe (jusqu'à 1000 UF)</td>
+          </tr>
+          <tr>
+            <td>Greffe de barbe - FUE</td>
+            <td>2.50€/greffe (1000 UF / jour)</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <div class=row>
+        <div class="col-md-6">
+          <a href=https://www.esthetic-planet.com/consultation-en-ligne.html class="btn btn1 btn-round cta2 text-white">Devis personnalisé !</a>
+        </div>
+        <div class="col-md-6">
+          <a :href=doctor.agenda class="btn btn1 btn-round  text-white" style="background:#303455">Agenda du médecin</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </section>
+</div>
+<script type="text/javascript">
+let app =  new Vue({
+  el: '#app',
+
+  data: {
+    doctor: {
+      name: 'Dr. Bruno Ferreira',
+      specialty: 'Greffe de cheveux',
+      description: 'Dr Bruno Filipe Caneiro Ferreira est née à Porto, au Portugal, il est diplômé de la faculté de médecine de l’université de de Porto en 2011. Dr Ferreira a pratiqué la médecine pendant 8 ans, dont 7 dans la chirurgie de restauration de cheveux, consacrant pratiquement toute sa carrière de médecin dans ce domaine.',
+      portrait: {
+        url: 'https://votre-clinique.fr/wp-content/uploads/2019/09/Dr-Ferreira-225x300.jpeg',
+        alt: 'photo du medecin'
+      },
+      agenda: 'https://medical-clinic-network.com/produit/dr-bruno-ferreira-greffe-de-cheveux-porto/',
+      location: {
+        country: 'Portugal',
+        city: 'Porto'
+      },
+    },
+
+    galery: [
+      {
+        min: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira-224x140.jpg',
+        box: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira.jpg',
+      },
+      {
+        min: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira2-224x140.jpg',
+        box: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira2.jpg',
+      },
+      {
+        min: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira3-224x140.jpg',
+        box: 'https://votre-clinique.fr/wp-content/uploads/2019/09/clinique-ferreira3.jpg',
+      },
+    ],
+
+  }
+
+});
+</script>
+<!-- END OF PROCEDURE GREFFE de cheveux-->
+
+<!-- FOOTER -->
+<script type="text/javascript">intervention();</script>
+<script type="text/javascript">footer();</script>
+<!-- END OF FOOTER -->
+
+
+<!-- LESS.JS -->
+<script type="text/javascript" src="less/less.js"></script>
+<!-- Modernizr.js -->
+<script type="text/javascript" src="js/modernizr.js"></script>
+<!-- Mootstrap.min.js -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Moving-gradient.js -->
+<script type="text/javascript" src="js/moving-gradient.js"></script>
+<!-- Jquery.waypoints.js -->
+<script type="text/javascript" src="js/jquery.waypoints.js"></script>
+
+<!-- Custom.js -->
+<script type="text/javascript" src="js/custom.js"></script>
+
+
+</body>

@@ -1,0 +1,35 @@
+README
+
+GPL LICENSE
+FOR Questions, Comments, Errors please email me at jnroche.5127@gmail.com. 
+
+For instructions on how to use this class please open pagingindex.php 
+instructions are in the files starting from pagingindex.php
+
+Features v 1.1:
+- now using jquery for ajaxification
+- fixed bug with page links that did not follow pagespergroup variable
+- fixed bug with html A tags in showfirst(), shownext(), showlast(), showprev() functions
+- added basic styling css (main.css) and a preloader
+*fully customisable to suite your needs
+
+
+
+
+
+
+Features v 1.0:
+-You can toggle between ajax or href types of links to implement by commenting one just line!
+-you can set any number of links to show apart from the number of records per page to show
+-you can add additional links like: First, Previous,Next, Last apart from the 'number' links
+-you can customize the links to any string you want hence: 'first' or 'First Record'; 'Prev' or 'Previous' etc..
+-you can customize a separator between the number links to show
+-has an indicator of which page you are viewing (underlined page number)
+-all these achievable in no time!
+
+
+
+
+Thank you for using my paging class,
+jannerel roche
+

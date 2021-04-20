@@ -1,0 +1,187 @@
+@charset "utf-8";
+/* CSS Document */
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+}
+body {
+	background: #f7f7f7;
+	margin: 0px;
+}
+#page_holder{
+	background:url(../images/main-bg.jpg) no-repeat top center;
+}
+p, h1, h2, h3, h4, h5, h6, form, ul{
+	margin:0;
+	padding:0;
+}
+p{
+	line-height:17px;
+}
+.clear{
+	clear:both;
+}
+img{
+	border:0;
+}
+.pink{
+	color:#dc0679;
+}
+a{
+	color:#999999;
+	text-decoration:none;
+}
+a:hover{
+	color:#353535;
+}
+
+/*page_holder*/
+#page_holder{
+	width:982px;
+	margin:auto;
+	background:url(../images/bg_image.gif) repeat-y;
+}
+#page_panel{
+	width:946px;
+	margin:auto;
+	background-color:#FFFFFF;
+}
+/*Top Header*/
+#top_header{
+	width:948px;
+	height:137px;
+	margin:auto;
+}
+#middle_area{
+	width:948px;
+	margin:auto;
+}
+#middle_area #left_part{
+	width:226px;
+	float:left;
+}
+#middle_area #right_part{
+	width:700px;
+	float:left;
+}
+#right_part #content_area{
+	width:690px;
+	margin:auto;
+}
+#content_area .login_hea{
+	width:688px;
+	height:37px;
+	float:left;
+	border-bottom:1px solid #336699;
+	color:#336699;
+	font-size:25px;
+	padding-top:10px;
+	margin-bottom:20px;
+}
+
+/*contact form*/
+#form{
+	padding:1px 0px 0px 0px;
+}
+#form ul{
+	margin:0;
+	padding:0;
+}
+#form ul li{
+	list-style:none;
+	float:left;
+	padding:0px 0px 10px 5px;
+}
+.field_name{
+	width:85px;
+	text-align:left;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#8d8d8d;
+	margin-top:7px;
+}
+.field{
+	width:400px;
+	color:#999;
+}
+.textbox{
+	width:349px;
+	color:#666666;
+	height:25px;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../images/text_image.gif) no-repeat;
+	border:0px;
+	padding:8px 0px 0px 8px;
+}
+
+.submit{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	width:102px;
+	height:33px;
+	border:0;
+	font-size:12px;
+	color:#336699;
+	background:url(../images/but.gif) no-repeat;
+}
+
+
+<!--Servics Page-->
+#middle_area #services{
+	width:948px;
+	margin:auto;
+}
+#services #ser_content{
+	width:916px;
+	margin:16px;
+}
+#ser_content .login_hea{
+	width:916px;
+	height:37px;
+	float:left;
+	border-bottom:1px solid #336699;
+	color:#336699;
+	font-size:25px;
+	padding-top:10px;
+	margin-bottom:20px;
+}
+#ser_content .navi{
+	width:688px;
+	height:40px;
+	float:left;
+	border-bottom:1px solid #336699;
+	color:#336699;
+	font-size:24pt;
+	padding-top:10px;
+	margin-bottom:20px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.logoutMsgBox {
+background:none repeat scroll 0 0 #F3F3F2;
+border:1px solid #33CC33;
+color:#339933;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size:12px;
+height:22px;
+padding:5px;
+width:85%;
+}
+.loginErrBox {
+background:none repeat scroll 0 0 #FFCC99;
+border:1px solid #FF6600;
+color:#FF0000;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size:12px;
+height:22px;
+padding:5px;
+width:85%;
+}
+.alert_icon {
+background-image:url("../images/error.gif");
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:16px;
+width:23px;
+height:22px;
+}

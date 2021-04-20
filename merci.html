@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <!-- Page Title -->
+
+  <title>Esthetic Planet – demande de devis</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="chirurgie esthetique et dentaire www.esthetic-planet.com">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="js/head.js" type="text/javascript"></script>
+  <script src="js/resultat.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    new_head();
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    new_menu();
+ </script>
+
+
+  <style>
+    .banner-outer {
+      background-image: url(images/merci-test2.jpg) !important;
+      height:200px;
+    }
+
+    @media screen and (max-width: 767px) {
+      .banner-outer {
+        background-position: 3% 36%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 200px !important;
+      }
+    }
+  </style>
+
+  <!-- LOADER -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+  <!-- END OF LOADER -->
+  <!-- HEADER -->
+  <header class="header1">
+    <div class="header-wrapper">
+      <div class="banner-outer">
+
+        <div class="header-content h-100">
+          <div class="container h-100">
+
+
+            <div class="row h-100 justify-content-center align-items-center">
+              <div class="col-12 text-center">
+                <!-- HEADER FORM -->
+                <h1 class="text-white">MERCI DE VOTRE CONFIANCE</h1>
+                <div class="text-white" id='checkEmail' style="display:none;"></div>
+                <!-- END OF HEADER FORM-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END OF HEADER -->
+
+
+  <section class="container my-5">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 d-flex justify-content-center align-items-center">
+      </div>
+      <div class="col-md-9">
+        <div class="alert alert-info">
+        <p>Merci de vérifier l’orthographe de votre email.</p>
+        <p>Vous n’avez reçu d'email ? Pensez à vérifier votre boite <b>« courrier indésirables »</b> ou <b>« spams »</b></p>
+      </div>
+     
+        <p>Toute l'équipe reste à votre écoute et vous réponds à cet addresse :  <a href="mailto:estheticplanet.paris@gmail.com">estheticplanet.paris@gmail.com</a></p>
+        <p>Merci et à très bientôt,</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <script type="text/javascript">
+    new_footer();
+</script>
+  <!-- END OF FOOTER -->
+
+
+  <!-- LESS.JS -->
+  <script type="text/javascript" src="less/less.js"></script>
+  <!-- Modernizr.js -->
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <!-- Mootstrap.min.js -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- Moving-gradient.js -->
+  <script type="text/javascript" src="js/moving-gradient.js"></script>
+  <!-- Jquery.waypoints.js -->
+  <script type="text/javascript" src="js/jquery.waypoints.js"></script>
+
+  <!-- Custom.js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+
+
+  <script type="text/javascript">
+    const params = new URLSearchParams(window.location.search);
+
+    var email = params.has('email1') ? params.get('email1') : '';
+    if(email.length > 0){
+      emailInfo = document.getElementById('checkEmail');
+      emailInfo.style.display = "block";
+      emailInfo.innerHTML =
+      `<p class="text-center">Vos offres vous attendent sur votre courriel : <u>${email}</u></p>`;
+    }
+
+
+
+  </script>
+
+
+</body>

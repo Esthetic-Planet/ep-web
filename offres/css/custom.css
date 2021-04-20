@@ -1,0 +1,6 @@
+/*
+ * Title:   Custom Style File
+ * Author:  1stone
+ */
+
+.timeline{list-style:none}.timeline>li{margin-bottom:60px}@media(min-width :640px){.timeline>li{overflow:hidden;margin:0;position:relative}.timeline-date{width:110px;float:left;margin-top:20px;font-size:16px;line-height:18px}.timeline-date-right{width:110px;float:right;margin-top:20px;font-size:16px;line-height:18px;padding-left:10px}.timeline-content{width:75%;float:left;border-left:3px #e5e5d1 solid;padding-left:30px}.timeline-content-right{width:75%;float:right;border-right:3px #e5e5d1 solid;padding-right:30px}.timeline-content:hover:before{transform:scale(1.3);transition:all 300ms ease;background:rgba(111,193,115,1)}.timeline-content-right:hover:before{transform:scale(1.3);transition:all 300ms ease;background:rgba(111,193,115,1)}.timeline-content:before{content:'';width:12px;height:12px;background:rgba(111,193,115,0.8);position:absolute;left:106px;top:24px;border-radius:100%;transition:all 200ms ease}.timeline-content-right:before{content:'';width:12px;height:12px;background:rgba(111,193,115,0.8);position:absolute;right:106px;top:24px;border-radius:100%;transition:all 200ms ease}}

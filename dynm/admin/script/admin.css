@@ -1,0 +1,135 @@
+/* CSS Document */
+
+.loginErrBox {
+width:85%;
+height:22px;
+border:solid 1px #FF6600;
+background:#FFCC99;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#FF0000;
+padding:5px;
+}
+.alert_icon {
+background-image:url("../images/error.gif");
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:16px;
+width:23px;
+height:22px;
+}
+.green_check_icon {
+background-image:url("../images/green_check_icon.gif");
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:16px;
+padding-right:4px;
+width:23px;
+height:22px;
+}
+.logoutMsgBox {
+width:85%;
+height:22px;
+border:solid 1px  #33CC33;
+background: #F3F3F2;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+color: #339933;
+padding:5px;
+}
+
+.successMsgBox {
+width:85%;
+height:22px;
+border:solid 1px  #33CC33;
+background: #F3F3F2;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+color: #339933;
+padding:5px;
+}
+.requried_sign {
+color:#FF0000;
+}
+.mandatory_txt {
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+color: #666666;
+}
+
+.btn {
+background:url(../images/leftnav_headbg.gif);
+background-repeat: repeat;
+width:82px;
+height:21px;
+color:#FFFFFF;
+margin:0;
+padding:0;
+}
+
+.empty_record_txt {
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#FF0000;
+}
+a.myaccount {
+font-family:Arial, Helvetica, sans-serif;
+font-size:9px;
+color: #FFFF00;
+}
+a.myaccount:hover {
+font-family:Arial, Helvetica, sans-serif;
+font-size:9px;
+color: #fff;
+}
+
+a.link_blue_bold {
+display:block;
+color:#009AB6;
+text-decoration:none;
+}
+a.link_blue_bold:hover
+{
+color:#FF6633;
+text-decoration:none;
+}
+
+.successmsg{font-family:Arial, Helvetica, sans-serif;
+font-size:16px;
+color:#0099CC;
+}
+
+a.myaccount1 {
+font-family:Arial, Helvetica, sans-serif;
+font-size:9px;
+color: #2280A4;
+}
+a.myaccount1:hover {
+font-family:Arial, Helvetica, sans-serif;
+font-size:9px;
+color: #fff;
+
+}
+
+
+
+#breadcrumbs{
+padding-left:5px;
+padding-bottom:5px;
+margin:0px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:15px;
+color:#989898;
+width:800px;
+}
+#breadcrumbs a{
+font-family:Arial, Helvetica, sans-serif;
+font-size:15px;
+color: #000;
+text-decoration:none;
+}
+#breadcrumbs a:hover{
+font-family:Arial, Helvetica, sans-serif;
+font-size:15px;
+color: #6F3014;
+}

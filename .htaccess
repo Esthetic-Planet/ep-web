@@ -1,0 +1,470 @@
+# protect the htaccess file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+RewriteEngine On
+
+ErrorDocument 404 https://www.esthetic-planet.com/error404.html
+
+
+#Check to see if browser can accept gzip files. If so and we have it – serve it!
+ReWriteCond %{HTTP:accept-encoding} gzip
+RewriteCond %{HTTP_USER_AGENT} !Safari
+#make sure there's no trailing .gz on the url
+ReWriteCond %{REQUEST_FILENAME} !^.+.gz$
+#check to see if a .gz version of the file exists.
+RewriteCond %{REQUEST_FILENAME}.gz -f
+#All conditions met so add .gz to URL filename (invisibly)
+RewriteRule ^(.+) $1.gz [QSA,L]
+<ifmodule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_keep_workfiles No
+mod_gzip_can_negotiate Yes
+mod_gzip_add_header_count Yes
+mod_gzip_send_vary Yes
+mod_gzip_command_version '/mod_gzip_status'
+mod_gzip_min_http 1000
+mod_gzip_minimum_file_size 300
+mod_gzip_maximum_file_size 512000
+mod_gzip_maximum_inmem_size 60000
+mod_gzip_handle_methods GET POST
+mod_gzip_temp_dir /tmp
+mod_gzip_item_include file .html$
+mod_gzip_item_include file .php$
+mod_gzip_item_include file .pl$
+mod_gzip_item_include file .rb$
+mod_gzip_item_include file .py$
+mod_gzip_item_include file .cgi$
+mod_gzip_item_include file .css$
+mod_gzip_item_include file .js$
+mod_gzip_item_include mime ^application/javascript$
+mod_gzip_item_include mime ^application/x-javascript$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^httpd/unix-directory$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include handler ^server-status$
+mod_gzip_item_include handler ^server-info$
+mod_gzip_item_include handler ^application/x-httpd-php
+mod_gzip_item_exclude mime ^image/.*
+</ifmodule>
+
+Redirect 301 /galerie-photo-greffe-cheveux-fue.html https://esthetic-planet.com/galerie-photo-greffe-cheveux.html
+Redirect 301 /chirurgie-esthetique-Belgique-greffe-de-cheveux.html https://esthetic-planet.com/chirurgie-esthetique-belgique-greffe-de-cheveux.html 
+Redirect 301 /soins-dentaire-implant.html https://www.esthetic-planet.com/soins-dentaire.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-Belgique-greffe-de-cheveux.html https://esthetic-planet.com/chirurgie-esthetique-belgique-greffe-de-cheveux.html 
+Redirect 301 /EP-sous-template/www/soins-dentaire-implant.html https://www.esthetic-planet.com/soins-dentaire.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-hongrie.html https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /photos-cliniques-dentaires-hongrie-copie.html https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /EP-sous-template/www/rappel.php https://www.esthetic-planet.com/rappel.php
+Redirect 301 /EP-sous-template/www/chirurgie-botox-injection-collagene-acide-hyaluronique.html https://www.esthetic-planet.com/chirurgie-botox-injection-collagene-acide-hyaluronique.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-turquie-greffe-de-cheveux.html https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /EP-sous-template/www/soins-dentaires-hongrie.html https://esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/vision.html https://esthetic-planet.com/vision.html
+Redirect 301 /EP-sous-template/www/galerie-photo-visage.html https://esthetic-planet.com/galerie-photo-visage.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-belgique-greffe-de-cheveux.html https://esthetic-planet.com/chirurgie-esthetique-belgique-greffe-de-cheveux.html
+Redirect 301 /EP-sous-template/www/greffe-des-cheveux.html https://esthetic-planet.com/greffe-des-cheveux.html
+Redirect 301 /EP-sous-template/www/chirurgie-mammaire-augmentation-mammaire.html https://esthetic-planet.com/chirurgie-mammaire-augmentation-mammaire.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /clinique.html https://www.esthetic-planet.com/cliniques.html
+Redirect 301 /EP-sous-template/www/photos-cliniques-dentaires-hongrie.html https://www.esthetic-planet.com/photos-cliniques-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/photos-clinique-chirurgie-esthetique-hongrie.html https://www.esthetic-planet.com/photos-clinique-esthetique-hongrie.html
+Redirect 301 /EP-sous-template/www/temoignages.html https://esthetic-planet.com/temoignages.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html?PHPSESSID=25fed18ee18e960dec26e574cdb5d413 https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html?PHPSESSID=07aa304c165892e9d860c9eebd47366e https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html?PHPSESSID=66b44ee67e025a47d2b4d6d92a08d853 https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html?PHPSESSID=854606ac42f5e12b2e56d1578d06d639 https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /EP-sous-template/www/photos-clinique-chirurgie-cheveux-bruxelles.html https://esthetic-planet.com/photos-clinique-chirurgie-cheveux-bruxelles.html
+Redirect 301 /soins-entaires.html?PHPSESSID=48dec4133c95d0b9d5577d8027db6d82 https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/correction-de-la-vision-au-laser.html https://www.esthetic-planet.com/correction-de-la-vision-au-laser.html
+Redirect 301 /EP-sous-template/www/index.html https://www.esthetic-planet.com/index.html
+Redirect 301 /EP-sous-template/www/soins-dentaire-chirurgie-esthetique-remboursements.html https://www.esthetic-planet.com/remboursement-dentaire-chirurgie-esthetique.html
+Redirect 301 /soins-entaires.html?PHPSESSID=07aa304c165892e9d860c9eebd47366e https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthtetique-miami.html?PHPSESSID=a47c6019213de7e36980711669b06e20 https://esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /EP-sous-template/www/www.esthetic-planet.com/ https://www.esthetic-planet.com/index.html
+Redirect 301 /EP-sous-template/www/garantie.html https://www.esthetic-planet.com/garanties.html
+Redirect 301 /garantie.html https://www.esthetic-planet.com/garanties.html
+Redirect 301 /abdominoplastie https://www.esthetic-planet.com/abdominoplastie.html
+Redirect 301 /www/greffe-de-barbe.html https://www.esthetic-planet.com/greffe-de-barbe.html
+Redirect 301 /prix_soins_dentaires_hongrie.html https://www.esthetic-planet.com/soins-dentaires.html
+Redirect 301 /photos https://www.esthetic-planet.com/galerie-photo-visage.html
+Redirect 301 /video1.html https://www.esthetic-planet.com/videos.html
+Redirect 301 /videos https://www.esthetic-planet.com/videos.html
+Redirect 301 /chirurgie-esthetique-belgique-greffe-de-cheveux https://www.esthetic-planet.com/chirurgie-esthetique-belgique-greffe-de-cheveux.html
+Redirect 301 /prix-greffe https://www.esthetic-planet.com/greffe-des-cheveux.html
+Redirect 301 /news.html https://www.esthetic-planet.com/actualites-tourisme-medical.html
+Redirect 301 /prix https://www.esthetic-planet.com/chirurgie-du-visage.html
+Redirect 301 /soins-dentaires https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 https://www.esthetic-planet.com/www.esthetic-planet.com/ https://www.esthetic-planet.com/index.html
+Redirect 301 /soins-entaires.html?PHPSESSID=91af0deef42ae544ef283f5f7a67d95b https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/greffe-de-cheveux-implants-capillaires.html https://www.esthetic-planet.com/greffe-de-cheveux-implants-capillaires.html
+Redirect 301 /soins-entaires.html?PHPSESSID=2a1038addc2b62f8177912d497713c94 https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/chirurgie-du-nez-rhinoplastie.html https://www.esthetic-planet.com/chirurgie-du-nez-rhinoplastie.html
+Redirect 301 /EP-sous-template/www/soins-dentaire.html https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /EP-sous-template/www/chirurgie-du-corps.html https://www.esthetic-planet.com/chirurgie-du-corps.html
+Redirect 301 /EP-sous-template/www/qui-sommes-nous.html https://www.esthetic-planet.com/qui-sommes-nous.html
+Redirect 301 /soins-entaires.html?PHPSESSID=25fed18ee18e960dec26e574cdb5d413 https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /chirurgie-esthetique-tunisie.html; https://www.esthetic-planet.com/chirurgie-esthetique-tunisie.html
+Redirect 301 /clinique_tunis_chirurgie_esthetique_hannibal.html https://esthetic-planet.com/clinique-esthetique-istanbul.html
+Redirect 301 /clinique-dentaire-budapest.html https://esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /clinique-esthetique-tunis.html https://www.esthetic-planet.com/chirurgie-esthetique-tunisie.html
+Redirect 301 /clinique-greffe-cheveux-istanbul.html https://esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /cliniques-3.html https://esthetic-planet.com/cliniques.html
+Redirect 301 /correction-de-la-vison-au-laser.html https://esthetic-planet.com/correction-de-la-vision-au-laser.html
+Redirect 301 /greffe-de-cheveaux-implants-capillaires.html https://esthetic-planet.com/greffe-de-cheveux-implants-capillaires.html
+Redirect 301 /greffe-de-cheveux-implants-capillaires-essaie.html https://esthetic-planet.com/greffe-de-cheveux-implants-capillaires.html
+Redirect 301 /interventions-reduction-mammaire.html https://esthetic-planet.com/reduction-mammaire.html
+Redirect 301 /interventions2.html https://esthetic-planet.com/intervention.html
+Redirect 301 /photos-avant-apres-chirurgie-esthetique.html https://esthetic-planet.com/galerie-photo-visage.html
+Redirect 301 /photos-clinique-chirurgie-cheveux-bruxelles-copie.html https://esthetic-planet.com/photos-clinique-chirurgie-cheveux-bruxelles.html
+Redirect 301 /photos-clinique-chirurgie-cheveux-bruxelles-copie2.html https://esthetic-planet.com/photos-clinique-chirurgie-cheveux-bruxelles.html
+Redirect 301 /photos-clinique-chirurgie-esthetique-hongrie.html https://esthetic-planet.com/photos-clinique-esthetique-hongrie.html
+Redirect 301 /photos-clinique-greffe-cheveux-estethica-turquie.html https://www.esthetic-planet.com/clinique-greffe-cheveux-hacer-yuce.html
+Redirect 301 /photos-cliniques-capillaire-estethica-istanbul.html https://www.esthetic-planet.com/clinique-greffe-cheveux-hacer-yuce.html
+Redirect 301 /photos-cliniques-capillaire-istanbul.html https://www.esthetic-planet.com/clinique-greffe-cheveux-hacer-yuce.html
+Redirect 301 /photos-cliniques-dentaires-hongrie-copie.html https://esthetic-planet.com/photos-cliniques-dentaires-hongrie.html
+Redirect 301 /photos-cliniques-dentaires-hongrie-ok.html https://esthetic-planet.com/photos-cliniques-dentaires-hongrie.html
+Redirect 301 /remboursement-securite-sociale-couronne-dentaire.html https://esthetic-planet.com/remboursement-dentaire-chirurgie-esthetique.html
+Redirect 301 /soins-dentaire-chirurgie-esthetique-remboursements.html https://esthetic-planet.com/remboursement-dentaire-chirurgie-esthetique.html
+Redirect 301 /tarif-chirurgie-esthetique.html https://esthetic-planet.com/chirurgie-du-visage.html
+Redirect 301 /top-5.html https://esthetic-planet.com/charte-qualite.html
+Redirect 301 /tourisme-dentaire-soins-dentaire-hongrie-modif.html https://esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /index-test-typo.html https://esthetic-planet.com/index.html
+Redirect 301 /index-test.html https://esthetic-planet.com/index.html
+Redirect 301 /index-test.typo.html https://esthetic-planet.com/index.html
+Redirect 301 /index-test2.html https://esthetic-planet.com/index.html
+Redirect 301 /index-test5.html https://esthetic-planet.com/index.html
+Redirect 301 /merc-2i.html https://esthetic-planet.com/merci.html
+Redirect 301 /consultation_en_ligne.php https://www.esthetic-planet.com/consultation-en-ligne.php
+Redirect 301 /article-implants.html https://www.esthetic-planet.com/bien-choisir-ses-protheses-mammaires.html
+Redirect 301 /greffe-des-cheveux123.html https://www.esthetic-planet.com/greffe-des-cheveux.html
+Redirect 301 /galerie-greffe-barbe.html https://www.esthetic-planet.com/greffe-de-barbe-avant-apres.html
+Redirect 301 /galerie-photo-dentaire.html https://www.esthetic-planet.com/galerie_photo_soins_dentaires.html
+Redirect 301 /galerie-photo-greffe-cheveux-bht.html https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-bht-3000-greffes-ergin-Istanbul.html
+Redirect 301 /Contatto-esthetic-planet.php https://www.esthetic-planet.com/contact-societe-esthetic-planet.php
+Redirect 301 /fecondation-in-vitro.html https://www.esthetic-planet.com/pma-fecondation-in-vitro.html
+Redirect 301 /galerie-photo-corps.html https://www.esthetic-planet.com/galerie-photo-visage.html
+Redirect 301 /rappel.php https://www.esthetic-planet.com/contact-societe-esthetic-planet.php
+Redirect 301 /galerie_photo_corps_augmentationmammaire_AncienneVersion.html https://www.esthetic-planet.com/galerie_photo_corps_augmentationmammaire.html
+Redirect 301 /greffe-de-barbe-dr-ergin-resultat.html https://www.esthetic-planet.com/greffe-de-barbe-avant-apres.html
+Redirect 301 /comparatif-prix-dentaire-hongrie-france.html  https://www.esthetic-planet.com/soins-dentaires.html
+Redirect 301 /greffe-de-cheveux https://www.esthetic-planet.com/greffe-de-cheveux-implants-capillaires.html
+Redirect 301 /m/galerie-photo-greffe-cheveux-fut-3000-greffes-behan-Istanbul.html https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3000-greffes-behan-Istanbul.html
+Redirect 301 /cliniques-dentaires-hongrie.html https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /promo.html https://www.esthetic-planet.com/promotions-tourisme-medical.html
+Redirect 301 /chirurgie-mammaire-reduction-mammaire-hypertrophie.html https://www.esthetic-planet.com/remboursement-dentaire-chirurgie-esthetique.html
+Redirect 301 /prendre_des_photos.html https://www.esthetic-planet.com/pourquoi-nous-choisir.html
+Redirect 301 /clinique-chirurgie-esthetique-budapest.html https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /galerie-photo-greffe-cheveux-bht-3000-greffes-ergin-Istanbul.html https://www.esthetic-planet.com/greffe-de-barbe-avant-apres.html
+Redirect 301 /photos-clinique-greffe-cheveux-turquie.html https://www.esthetic-planet.com/clinique-greffe-cheveux-hacer-yuce.html
+Redirect 301 /photos-clinique-esthetique-prague.html https://www.esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-praga.html
+Redirect 301 /clinique-chirurgie-esthetique-istanbul.html https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /photos-clinique-esthetique-hongrie.html https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /photos-clinique-esthetique-tunis.html https://www.esthetic-planet.com/chirurgie-esthetique-tunisie.html
+Redirect 301 /photo-clinique-anneau-gastrique.html https://www.esthetic-planet.com/clinique-anneau-gastrique-tunis.html
+Redirect 301 /galerie-photo-greffe-cheveux-old.html https://www.esthetic-planet.com//galerie-photo-greffe-cheveux.html
+Redirect 301 /galerie-photo-greffe-cheveux-fut.html https://www.esthetic-planet.com//galerie-photo-greffe-cheveux.html
+Redirect 301 /galerie-photo-greffe-cheveux2.html https://www.esthetic-planet.com//galerie-photo-greffe-cheveux.html
+Redirect 301 /chirurgiens-greffe-cheveux-turquie.html https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /cliniques-hongrie-greffe-de-cheveux.html https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /clinique-pma-cadix-espagne.html https://www.esthetic-planet.com/clinique-pma-espagne.html
+Redirect 301 /promo-operation-yeux-ilasik.html https://www.esthetic-planet.com/operation-yeux-ilasik.html
+Redirect 301 /photos-clinique-chirurgie-esthetique-turquie.html https://www.esthetic-planet.com/clinique-greffe-cheveux-hacer-yuce.html
+Redirect 301 /interventions.html https://www.esthetic-planet.com/intervention.html
+Redirect 301 /top-chirurgies-esthetiques-2013.html https://www.esthetic-planet.com/top-chirurgies-esthetiques-2016.html
+Redirect 301 /inde https://www.esthetic-planet.com/inde.html
+Redirect 301 /paris https://www.esthetic-planet.com/cliniques.html
+Redirect 301 /ptose_mammaire.html https://www.esthetic-planet.com/lifting-des-seins.html
+Redirect 301 /EP-sous-template/www/chirurgie-esthetique-tunisie.html https://www.esthetic-planet.com/chirurgie-esthetique-tunisie.html
+Redirect 301 /EP-sous-template/www/genioplastie.html https://www.esthetic-planet.com/genioplastie.html
+Redirect 301 /reduction-mammaire https://www.esthetic-planet.com/reduction-mammaire.html
+Redirect 301 /EP-sous-template/www/cliniques.html https://www.esthetic-planet.com/cliniques.html
+Redirect 301 /offres/pages/tf1-reportage/rendez-vous-greffe-cheveux-turquie.php https://www.esthetic-planet.com/offres/pages/tf1-reportage/tourisme-medical.html
+Redirect 301 /expertise-a-votre-service.html https://www.esthetic-planet.com/pourquoi-nous-choisir.html
+Redirect 301 /morphing.php https://www.esthetic-planet.com/error404.html
+Redirect 301 /paris.html https://www.esthetic-planet.com/error404.html
+Redirect 301 /soins-dentaire https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /liens.php https://www.esthetic-planet.com/error404.html
+Redirect 301 /galerie_photo_corps_labioplastie.html https://www.esthetic-planet.com/error404.html
+Redirect 301 /galerie-photo-greffe-cheveux-bht-2000-greffes-ergin-Istanbul.html https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2500-fue-hacer-istanbul.html
+Redirect 301 /index12.html https://www.esthetic-planet.com/error404.html
+Redirect 301 /index-4.html%3Fname= https://www.esthetic-planet.com/error404.html
+Redirect 301 /EP-sous-template/www/gynecomastie.html https://www.esthetic-planet.com/gynecomastie.html
+Redirect 301 /nous-rejoindre.html https://www.esthetic-planet.com/error404.html
+Redirect 301 /index-7.html https://www.esthetic-planet.com/error404.html
+Redirect 301 /offres-blackfriday.php https://www.esthetic-planet.com/
+Redirect 301 /galerie-photo-greffe-cheveux-2500-fue-istanbul.html https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2500-fue-hacer-istanbul.html
+Redirect 301 /clinique-greffe-cheveux-hacer-yuce.html https://www.esthetic-planet.com/clinique-greffe-cheveux-dr-ergin.html
+Redirect 301 /tarif-pma-fecondation-in-vitro.html https://www.esthetic-planet.com/pma-fiv/tarifs.php
+Redirect 301 /mobile/tarifs-fecondation-in-vitro.php https://www.esthetic-planet.com/pma-fiv/tarifs.php
+Redirect 301 /offres/pages/dentaires-promo-turquie/rendez-vous-dentaire-turquie-adw.php/ https://www.esthetic-planet.com/offres/pages/dentaires-promo-turquie/rendez-vous-dentaire-turquie-adw.php
+Redirect 301 /consultation-en-ligne.php https://www.esthetic-planet.com/consultation-en-ligne.html
+Redirect 301 demande-de-devis.php https://www.esthetic-planet.com/consultation-en-ligne.html
+Redirect 301 /reduction-mammaire.html https://www.esthetic-planet.com/lifting-des-seins.html
+Redirect 301 /contact-societe-esthetic-planet.php https://www.esthetic-planet.com/contact-societe-esthetic-planet.html
+Redirect 301 /clinique-pma-espagne.html https://www.esthetic-planet.com/pma-fiv/pma.php
+Redirect 301 /clinique-pma-budapest.html https://www.esthetic-planet.com/pma-fiv/pma.php
+Redirect 301 /offre-promo-soins-dentaires-izmir.html https://www.esthetic-planet.com/offres/pages/dentaires-promo-turquie/rendez-vous-dentaire-turquie.php
+Redirect 301 /chirurgie-esthetique-cliniques-chirurgie-esthetique-praga.html https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /visite-paris-dr-bisanga.php https://www.esthetic-planet.com/visite-paris-dr-bisanga.html
+Redirect 301 /photos-clinique-chirurgie-greffe-cheveux-turquie-kayihan.html https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /galerie-photo-greffe-cheveux-fue-3800-greffes-Istanbul.html https://www.esthetic-planet.com/galerie-photo-greffe-cheveux.html
+Redirect 301 /galerie_photo_visage_otoplastie.html https://www.esthetic-planet.com/galerie_photo_visage_rhino.html
+Redirect 301 /galerie_photo_visage_genioplastie.html https://www.esthetic-planet.com/galerie_photo_visage_rhino.html
+Redirect 301 /diagnostic-preimplantatoire.html https://www.esthetic-planet.com/pma-fiv/diagnostic-preimplantatoire.php
+Redirect 301 /galerie_photo_corps_reductionmammaire.html https://www.esthetic-planet.com/galerie_photo_corps_liftingmammaire.html
+Redirect 301 /galerie_photo_corps_gynecomastie.html https://www.esthetic-planet.com/galerie_photo_corps_liposuccion_homme.html
+Redirect 301 /greffe-de-barbe-avant-apres.html https://www.esthetic-planet.com/galerie-photo-greffe-barbe-2000-bht.html
+Redirect 301 /forfait-greffe-de-barbe-bht-turquie.php https://www.esthetic-planet.com/forfait-greffe-de-barbe-bht-turquie.html
+Redirect 301 /mobile/financement.html https://www.esthetic-planet.com
+Redirect 301 /offres/pages/dentaires-promo-turquie/rendez-vous-dentaire-turquie.php https://www.esthetic-planet.com/offres-facettes.html
+Redirect 301 /soins-dentaire-esthetique.html https://www.esthetic-planet.com/offres-facettes.html
+Redirect 301 /offres/pages/dentaires-promo-turquie/devis-soins-dentaires.php https://www.esthetic-planet.com/devis-soins-dentaires.html
+Redirect 301 /photos-cliniques-dentaires-rive-buda.html https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /photos-cliniques-dentaires-hongrie.html https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /contact-societe-esthetic-planet.html https://www.esthetic-planet.com/consultation-en-ligne.html
+Redirect 301 /pma-fiv/devis-pma.php https://www.esthetic-planet.com/consultation-en-ligne.html
+Redirect 301 /by-pass-chirurgie-bariatrique.html https://www.esthetic-planet.com/anneau-gastrique-chirurgie-obesite.html
+Redirect 301 /implant-dentaire.html https://www.esthetic-planet.com/soins-dentaire.html
+Redirect 301 /offre-ete.html https://www.esthetic-planet.com/forfait-greffe-de-cheveux-fue-turquie.html
+Redirect 301 /sleeve-chirurgie-bariatrique.html https://www.esthetic-planet.com/anneau-gastrique-chirurgie-obesite.html
+Redirect 301 /offre-all-inclusive-soins-dentaires-hongrie.html https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /offre-ete-chirurgie-esthetique-budapest-hongrie.html https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /photos-clinique-fiv-espagne.html https://www.esthetic-planet.com/pma-fiv/clinique-pma.php
+Redirect 301 /tarifs.html https://www.esthetic-planet.com
+Redirect 301 /offres-printemps.html https://www.esthetic-planet.com/greffe-de-cheveux-dhi-turquie.html
+Redirect 301 /offres-speciales-soins-dentaires-hongrie.html https://www.esthetic-planet.com
+Redirect 301 /offre-greffe-cheveux.html https://www.esthetic-planet.com/forfait-greffe-de-cheveux-fue-turquie.html
+Redirect 301 /promotions-tourisme-medical.html https://www.esthetic-planet.com/
+Redirect 301 /greffe-de-barbe.html https://www.esthetic-planet.com/forfait-greffe-de-barbe-bht-turquie.html
+
+
+
+
+
+
+# Redirect 301ion mobile
+Redirect 301 /mobile/anneau-gastrique-chirurgie-obesite.php https://www.esthetic-planet.com/anneau-gastrique-chirurgie-obesite.html
+Redirect 301 /mobile/tarifs-chirurgie-obesite.php https://www.esthetic-planet.com/prix-chirurgie-obesite.html
+Redirect 301 /mobile/genioplastie.php https://www.esthetic-planet.com/genioplastie.html
+Redirect 301 /mobile/tarifs-greffe-des-cheveux.php https://www.esthetic-planet.com/greffe-des-cheveux.html
+Redirect 301 /mobile/tarifs-greffe-de-barbe.php https://www.esthetic-planet.com/prix-greffe-de-barbe.html
+Redirect 301 /mobile/tarifs-soins-dentaires.php https://www.esthetic-planet.com/soins-dentaires.html
+Redirect 301 /mobile/tarifs-chirurgie-du-visage.php https://www.esthetic-planet.com/chirurgie-du-visage.html
+Redirect 301 /mobile/tarifs-chirurgie-des-seins.php https://www.esthetic-planet.com/chirurgie-des-seins.html
+Redirect 301 /mobile/tarifs-chirurgie-du-corps.php https://www.esthetic-planet.com/chirurgie-du-corps.html
+Redirect 301 /mobile/tarifs-correction-de-la-vision-laser.php https://www.esthetic-planet.com/correction-de-la-vision-au-laser.html
+Redirect 301 /mobile/charte-qualite.php https://www.esthetic-planet.com/charte-qualite.html
+Redirect 301 /mobile/guide-par-etapes.php https://www.esthetic-planet.com/guide-par-etapes.html
+Redirect 301 /mobile/garanties.php https://www.esthetic-planet.com/garanties.html
+Redirect 301 /mobile/remboursement-dentaire-chirurgie-esthetique.php https://www.esthetic-planet.com/remboursement-dentaire-chirurgie-esthetique.html
+Redirect 301 /mobile/qui-sommes-nous.php https://www.esthetic-planet.com/qui-sommes-nous.html
+Redirect 301 /mobile/pourquoi-nous-choisir.php https://www.esthetic-planet.com/pourquoi-nous-choisir.html
+Redirect 301 /mobile/contact.php https://www.esthetic-planet.com/contact-societe-esthetic-planet.html
+Redirect 301 /mobile/ilasik.php https://www.esthetic-planet.com/vision.html
+Redirect 301 /mobile/ilasik-1300.php https://www.esthetic-planet.com/operation-yeux-ilasik.html
+Redirect 301 /mobile/changement-couleur-yeux.php https://www.esthetic-planet.com/changement-couleur-yeux.html
+Redirect 301 /mobile/implant-kamra.php https://www.esthetic-planet.com/implant-kamra-presbytie.html
+Redirect 301 /mobile/chirurgie-botox-injection-collagene-acide-hyaluronique.php https://www.esthetic-planet.com/chirurgie-botox-injection-collagene-acide-hyaluronique.html
+Redirect 301 /mobile/lifting-cervico-facial.php https://www.esthetic-planet.com/lifting-cervico-facial.html
+Redirect 301 /mobile/forfait-greffe-fue-turquie.php https://www.esthetic-planet.com/forfait-greffe-de-cheveux-fue-turquie.html
+Redirect 301 /mobile/blepharoplastie.php https://www.esthetic-planet.com/blepharoplastie.html
+Redirect 301 /mobile/soins-dentaires-hongrie-turquie.php https://www.esthetic-planet.com/soins-dentaires-hongrie.html
+Redirect 301 /mobile/chirurgie-du-nez-rhinoplastie.php https://www.esthetic-planet.com/chirurgie-du-nez-rhinoplastie.html
+Redirect 301 /mobile/chirurgie-des-oreilles-decollees-otoplastie.php https://www.esthetic-planet.com/chirurgie-des-oreilles-decollees-otoplastie.html
+Redirect 301 /mobile/lifting-des-seins.php https://www.esthetic-planet.com/lifting-des-seins.html
+Redirect 301 /mobile/abdominoplastie.php https://www.esthetic-planet.com/abdominoplastie.html
+Redirect 301 /mobile/gynecomastie.php https://www.esthetic-planet.com/gynecomastie.html
+Redirect 301 /mobile/lifting-des-bras.php https://www.esthetic-planet.com/lifting-des-bras-brachioplastie.html
+Redirect 301 /mobile/lifting-des-cuisses.php https://www.esthetic-planet.com/chirurgie-corps-lifting-des-cuisses.html
+Redirect 301 /mobile/liposuccion-liposculture.php https://www.esthetic-planet.com/liposuccion-liposculpture.html
+Redirect 301 /mobile/chirurgie-mammaire-augmentation-mammaire.php https://www.esthetic-planet.com/chirurgie-mammaire-augmentation-mammaire.html
+Redirect 301 /mobile/nymphoplastie.php https://www.esthetic-planet.com/chirurgie-intime-nymphoplastie-hymenoplastie-labioplastie.html
+Redirect 301 /mobile/greffe-de-barbe.php https://www.esthetic-planet.com/greffe-de-barbe.html
+Redirect 301 /mobile/greffe-cheveux.php https://www.esthetic-planet.com/greffe-de-cheveux-implants-capillaires.html
+Redirect 301 /mobile/clinique-chirurgie-esthetique-miami.php https://www.esthetic-planet.com/chirurgie-esthetique-cliniques-chirurgie-esthetique-miami.html
+Redirect 301 /mobile/chirurgie-greffe-cheveux-inde.php https://www.esthetic-planet.com/inde.html
+Redirect 301 /mobile/forfait-greffe-barbe-bht.php https://www.esthetic-planet.com/greffe-de-barbe.html
+Redirect 301 /mobile/interventions.php https://www.esthetic-planet.com/intervention.html
+Redirect 301 /mobile/reduction-mammaire.php https://www.esthetic-planet.com/lifting-des-seins.html
+Redirect 301 /mobile/cliniques-belgique.php https://www.esthetic-planet.com/greffe-de-cheveux-belgique.html
+Redirect 301 /mobile/chirurgie-esthetique-tunisie.php https://www.esthetic-planet.com/chirurgie-esthetique-tunisie.html
+Redirect 301 /mobile/chirurgie-anneau-gastrique-tunisie.php https://www.esthetic-planet.com/clinique-anneau-gastrique-tunis.html
+Redirect 301 /mobile/index.php https://www.esthetic-planet.com/index.html
+Redirect 301 /mobile/clinique-belgique-greffe-de-cheveux-dr-bisanga.php https://www.esthetic-planet.com/clinique-greffe-cheveux-bisanga.html
+Redirect 301 /mobile/chirurgie-esthetique-hongrie.php https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /mobile/clinique-belgique-greffe-de-cheveux-dr-mwamba.php https://www.esthetic-planet.com/chirurgie-esthetique-belgique-greffe-de-cheveux.html
+Redirect 301 /mobile/chirurgie-greffe-de-cheveux-hongrie-dr-sikos.php https://www.esthetic-planet.com/greffe-cheveux-hongrie.html
+Redirect 301 /mobile/clinique-pma-espagne.php https://www.esthetic-planet.com/pma-fiv/pma.php
+Redirect 301 /mobile/clinique-pma-budapest.php https://www.esthetic-planet.com/pma-fiv/pma.php
+Redirect 301 /mobile/chirurgie-greffe-cheveux-maroc.php https://www.esthetic-planet.com/chirurgie-esthetique-maroc-greffe-de-cheveux.html
+Redirect 301 /mobile/chirurgie-esthetique-tunisie-dr-meddeb.php https://www.esthetic-planet.com/clinique-greffe-cheveux-tunis.html
+Redirect 301 /mobile/chirurgie-dentaire-hongrie-dr-mercz.php https://www.esthetic-planet.com/photos-cliniques-dentaires-hongrie.html
+Redirect 301 /mobile/chirurgie-dentaire-hongrie-dr-decker.php https://www.esthetic-planet.com/photos-cliniques-dentaires-rive-buda.html
+Redirect 301 /mobile/vision-turquie-lasik-dr-orucoglu.php https://www.esthetic-planet.com/clinique-ophtalmologique-istanbul.html
+Redirect 301 /mobile/clinique-dentaire-izmir.php https://www.esthetic-planet.com/clinique-dentaire-istanbul.html
+Redirect 301 /mobile/chirurgie-esthetique-turquie-greffe-de-cheveux-dr-emre-karadeniz.php https://www.esthetic-planet.com/photos-clinique-chirurgie-greffe-cheveux-turquie-emre.html
+Redirect 301 /mobile/chirurgie-esthetique-turquie-greffe-de-cheveux-dr-beyhan.php https://www.esthetic-planet.com/photos-clinique-chirurgie-greffe-cheveux-turquie-beyhan.html
+Redirect 301 /mobile/chirurgie-esthetique-istanbul.php https://www.esthetic-planet.com/clinique-esthetique-istanbul.html
+Redirect 301 /mobile/chirurgie-esthetique-turquie-greffe-de-cheveux-dr-ergin.php https://www.esthetic-planet.com/clinique-greffe-cheveux-dr-ergin.html
+Redirect 301 /mobile/comment-choisir-ma-clinique.php https://www.esthetic-planet.com/cliniques.html
+Redirect 301 /mobile/chirurgie.php https://www.esthetic-planet.com/chirurgie-esthetique.html
+Redirect 301 /mobile/chirurgies-esthetiques-pour-mamans.php https://www.esthetic-planet.com/chirurgies-esthetiques-pour-mamans.html
+Redirect 301 /mobile/top-chirurgies-esthetiques-2016.php https://www.esthetic-planet.com/top-chirurgies-esthetiques-2016.html
+Redirect 301 /mobile/clinique-chirurgie-esthetique-prague.php https://www.esthetic-planet.com/chirurgie-esthetique-hongrie.html
+Redirect 301 /mobile/financement.php https://www.esthetic-planet.com
+Redirect 301 /mobile/histoire-resultat-tourisme-medical.php https://www.esthetic-planet.com/histoire-resultat-tourisme-medical.html
+Redirect 301 /mobile/imtj.php https://www.esthetic-planet.com/imtj-2016.html
+Redirect 301 /mobile/reportage-tf1-soins-dentaires-hongrie.php https://www.esthetic-planet.com/news-tf1-clinique-dentaire-hongrie.html
+Redirect 301 /mobile/temoignage-patient-3500-greffe-cheveux-fue-turquie.php https://www.esthetic-planet.com/temoignage-patient-3500-greffe-cheveux-fue-turquie.html
+Redirect 301 /mobile/premiere-destination-greffe-cheveux-turquie.php https://www.esthetic-planet.com/premiere-destination-greffe-cheveux-turquie.html
+Redirect 301 /mobile/greffe-de-barbe-2000-bht.php https://www.esthetic-planet.com/galerie-photo-greffe-barbe-2000-bht.html
+Redirect 301 /mobile/5-bonnes-raisons-implants-mammaire.php https://www.esthetic-planet.com/5-bonnes-raisons-implants-mammaires.html
+Redirect 301 /mobile/chirurgie-esthetique-remboursement-vrai-faux.php https://www.esthetic-planet.com/chirurgie-esthetique-remboursement-vrai-faux.html
+Redirect 301 /mobile/implant-mammaire-anatomique-mentor-memoryshape.php https://www.esthetic-planet.com/implant-mammaire-anatomique-mentor-memoryshape.html
+Redirect 301 /mobile/interview-esthetic-planet-sur-greffe-de-cheveux.php https://www.esthetic-planet.com/interview-esthetic-planet-sur-greffe-de-cheveux.html
+Redirect 301 /mobile/smartlipo-lipolyse-laser-tunisie.php https://www.esthetic-planet.com/smartlipo-lipolyse-laser-tunisie.html
+Redirect 301 /mobile/questions-avant-chirurgie-esthetique.php https://www.esthetic-planet.com/questions-avant-chirurgie-esthetique.html
+Redirect 301 /mobile/differents-types-de-liposuccion.php https://www.esthetic-planet.com/differents-types-de-liposuccion.html
+Redirect 301 /mobile/interview-isaps.php https://www.esthetic-planet.com/news-interview-ISAPS.html
+Redirect 301 /mobile/actualites-tourisme-medical.php https://www.esthetic-planet.com/actualites-tourisme-medical.html
+Redirect 301 /mobile/greffe-de-cheveux-2500-fue-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2500-fue-hacer-istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-hacer-yuce.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-3000-Hacer-Yuce.html
+Redirect 301 /mobile/greffe-de-cheveux-3500-fue-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-3500-fue.html
+Redirect 301 /mobile/greffe-de-cheveux-3800-fue-beyhan-zeybek.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-3800-FUE-Beyhan-Zeybek.html
+Redirect 301 /mobile/visite-paris-dr-bisanga-mobile.php https://www.esthetic-planet.com/visite-paris-dr-bisanga.html
+Redirect 301 /mobile/reportage-rtbf-tourisme-medical-turquie.php https://www.esthetic-planet.com/tourisme-medical-rtbf.html
+Redirect 301 /mobile/avantage-greffe-de-cheveux-turquie.php https://www.esthetic-planet.com/avantages-greffe-cheveux-turquie.html
+Redirect 301 /mobile/greffe-de-cheveux-2100-fue-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-2100-greffes-ergin-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fue-dr-ergin-42.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3000-greffes-ergin-Istanbul-42.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fue-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3000-greffes-ergin-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fue-dr-ergin-5-mois.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3000-greffes-ergin-Istanbul-5-mois.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fue-hacer-yuce.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-3000-FUE-Hacer-Yuce.html
+Redirect 301 /mobile/greffe-de-cheveux-3800-fue-dr-kayihan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux.html
+Redirect 301 /mobile/chirurgie-esthetique-turquie-greffe-de-cheveux-kayihan.php https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /mobile/rapport-satisfaction-janvier-2018.php https://www.esthetic-planet.com/rapport-satisfaction-janvier-2018.html
+Redirect 301 /mobile/greffe-de-cheveux-2730-fue-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-2730-greffes-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-2800-fue-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2800-fue-beyhan.html
+Redirect 301 /mobile/greffe-de-cheveux-3800-fue-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3000-11mois-greffes-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fut-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3000-greffes-behan-Istanbul.html
+Redirect 301 /mobile/chirurgie-esthetique-cliniques-turquie.php https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /mobile/clinique-tunisie.php https://www.esthetic-planet.com/clinique-greffe-cheveux-tunis.html
+Redirect 301 /mobile/cliniques-hongrie.php https://www.esthetic-planet.com/tourisme-dentaire-soins-dentaire-hongrie.html
+Redirect 301 /mobile/cliniques-tunisie.php https://www.esthetic-planet.com/clinique-greffe-cheveux-tunis.html
+Redirect 301 /mobile/cliniques-turquie.php https://www.esthetic-planet.com/chirurgie-esthetique-turquie-greffe-de-cheveux.html
+Redirect 301 /mobile/greffe-de-cheveux-1600-fut-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-1600-greffes-behan-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-2100-fue-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-2100-greffes-ergin-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3030-fut-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3030-greffes-behan-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-2500-fue-dr-ergin-11-mois.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3000-greffes-ergin-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3624-fut-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3030-greffes-behan-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-4000-fue-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-4000-15mois-greffes-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3880-fue-dr-beyhan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3800-greffes-behan-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-2701-fue-dr-karadeniz.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2701-fue-greffes-karadeniz-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3475-fue-dr-karadeniz.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fue-3475-fue-greffes-karadeniz-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-3000-fut-dr-meddeb.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-fut-3000-greffes-9mois-tunisie-meddeb.html
+Redirect 301 /mobile/greffe-de-cheveux-2658-fut-dr-bisanga.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2658-fut-bisanga-bruxelles.html
+Redirect 301 /mobile/greffe-de-cheveux-2998-fue-dr-bisanga.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2998-fue-bisanga-bruxelles.html
+Redirect 301 /mobile/greffe-de-cheveux-2600-fue-dr-sikos-9-mois.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2600-fue-sikos-budapest.html
+Redirect 301 /mobile/greffe-de-cheveux-2524-fue-dr-sikos-12-mois.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2524-fue-sikos-budapest.html
+Redirect 301 /mobile/icsi-injection-intra-cytoplasmique-spermatozoide.php https://www.esthetic-planet.com/icsi-injection-intra-cytoplasmique-spermatozoide.html
+Redirect 301 /mobile/diagnostic-preimplantatoire.php https://www.esthetic-planet.com/pma-fiv/diagnostic-preimplantatoire.php
+Redirect 301 /mobile/infertilite.php https://www.esthetic-planet.com/pma-fecondation-in-vitro.html
+Redirect 301 /mobile/photo-visage-lifting.php https://www.esthetic-planet.com/galerie_photo_visage_blepharo.html
+Redirect 301 /mobile/photos-visage-rhinoplastie.php https://www.esthetic-planet.com/galerie_photo_visage_rhino.html
+Redirect 301 /mobile/photos-corps-augmentation-mammaire.php https://www.esthetic-planet.com/galerie_photo_corps_augmentationmammaire.html
+Redirect 301 /mobile/photos-corps-lifting-des-cuisses.php https://www.esthetic-planet.com/galerie_photo_corps_lifting_des_cuisses.html
+Redirect 301 /mobile/photos-corps-liposuccion.php https://www.esthetic-planet.com/galerie_photo_corps_liposuccion.html
+Redirect 301 /mobile/photos-corps-lipofilling-fessier.php https://www.esthetic-planet.com/galerie_photo_corps_lipofilling_fessier.html
+Redirect 301 /mobile/photos-corps-reduction-mammaire.php https://www.esthetic-planet.com/galerie_photo_corps_liftingmammaire.html
+Redirect 301 /mobile/photos-corps-gynecomastie.php https://www.esthetic-planet.com/galerie_photo_corps_liposuccion_homme.html
+Redirect 301 /mobile/vitrification-ovocytaire.php https://www.esthetic-planet.com/vitrification-ovocytaire.html
+Redirect 301 /mobile/photos-corps-lipo-homme.php https://www.esthetic-planet.com/galerie_photo_corps_liposuccion_homme.html
+Redirect 301 /mobile/photos-soins-dentaires.php https://www.esthetic-planet.com/galerie_photo_soins_dentaires.html
+Redirect 301 /mobile/photos-corps-abdominoplastie.php https://www.esthetic-planet.com/galerie_photo_corps_abdominoplastie.html
+Redirect 301 /mobile/greffe-de-cheveux-dr-karadeniz-resultat.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-2701-fue-greffes-karadeniz-Istanbul.html
+Redirect 301 /mobile/greffe-de-cheveux-4000-fue-dr-kayihan.php https://www.esthetic-planet.com/galerie-photo-greffe-cheveux-3500-fue.html
+Redirect 301 /mobile/greffe-de-barbe-3000-bht-dr-ergin.php https://www.esthetic-planet.com/galerie-photo-greffe-barbe-2000-bht.html
+Redirect 301 /mobile/promotions-tourisme-medical.php https://www.esthetic-planet.com/
+Redirect 301 /mobile/tarifs.php https://www.esthetic-planet.com/
+Redirect 301 /mobile/photos.php https://www.esthetic-planet.com/
+Redirect 301 /mobile/resultat-video-3500-greffes-fue-dr-beyhan.php https://www.esthetic-planet.com/resultat-video-3500-greffes-fue-dr-beyhan.html
+Redirect 301 /mobile/resultat-video-3800-greffes-fue-dr-ergin-hacer.php https://www.esthetic-planet.com/resultat-video-3800-greffes-fue-dr-ergin-hacer-yuce.html
+Redirect 301 /mobile/temoignage-video-patient-dr-ergin-hacer-yuce.php https://www.esthetic-planet.com/temoignage-video-patient-dr-ergin-hacer-yuce.html
+Redirect 301 /mobile/videos.php https://www.esthetic-planet.com/videos.html
+Redirect 301 /mobile/choisir-ses-protheses-mammaires.php https://www.esthetic-planet.com/bien-choisir-ses-protheses-mammaires.html
+Redirect 301 /mobile/resultats-couronnes-dentaires-zircone.php https://www.esthetic-planet.com/galerie_photo_soins_dentaires.html
+Redirect 301 /mobile/clinique-belgique-greffe-de-cheveux-dr-ouriaghli.php https://www.esthetic-planet.com/galerie_photo_soins_dentaires.html
+Redirect 301 /mobile/error404.php https://www.esthetic-planet.com/error404.html
+
+
+# BEGIN Expire headers
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # Video
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/mpeg "access plus 1 year"
+
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # Others
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType font/ttf "access plus 3 months"
+ExpiresByType font/otf "access plus 3 months"
+  ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# One year for image files
+<filesMatch ".(jpg|jpeg|png|gif|ico|ttf|otf)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+# One month for css and js
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+
+
+# Redirect 301ion vers HTTPS 
+RewriteCond %{SERVER_PORT} ^80$ [OR]
+RewriteCond %{HTTPS} =off
+RewriteRule ^(.*)$ https://esthetic-planet.com/$1 [R=301,L]
+# Redirect 301ion du www vers non-www en HTTPS
+RewriteCond %{HTTP_HOST} ^esthetic-planet.com [NC]
+RewriteRule ^(.*)$ https://www.esthetic-planet.com/$1 [R=301,L]
+
+
+
+#Suivant le support
+#RewriteCond %{HTTP_USER_AGENT} "ipod|iphone|android|palm|blackberry|opera mobile|googlebot-mobile" [NC]
+#RewriteCond %{REQUEST_URI} !^/mobile/
+#RewriteRule (.*) https://www.esthetic-planet.com/mobile [R=301,L]
+
+#RewriteCond %{REQUEST_URI} ^/$
+#RewriteRule ^ https://www.esthetic-planet.com/mobile%{REQUEST_URI} [R,L]
+
+RewriteCond %{THE_REQUEST} ^(GET|POST|HEAD)\ (/.*)?/index\.(htm|html|php|asp)
+RewriteRule ^(.*)index\.(htm|html|php|asp)$ /$1 [R=301,L]
+
+Options All -Indexes
+
+Header unset Set-Cookie
+
+# KILL THEM ETAGS
+Header unset ETag
+FileETag none
+

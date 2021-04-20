@@ -1,0 +1,71 @@
+/*NAROLA INFOTECH 2016*/
+@media screen and (max-width: 767px) {
+	.calc-wrapper {
+	    background-color: #0001fe;
+	    background-image: none;
+	    border: 10px solid #9b9b9b;
+	    border-radius: 35px;
+	    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5) inset;
+	    height: auto;
+	    width: 100%;
+	}
+	.div-left {
+	    padding-left: 15px;
+	}
+	.div-right, .pr5  {
+	    padding-right: 15px;
+	}
+	.btn-orange, .btn-small{
+		width:auto;
+	}
+	.face-interface {
+	    padding: 0 15px;
+	}
+	.face-interface .face {	    
+	    display: inline-block;
+	    float: none;
+	    height: 190px;	 
+	    width: 170px;
+	}
+	svg#sculp1 {
+	    left: 28px;
+	    top: 8px;
+	}
+	svg#sculp2 {
+	    left: 35px;
+	    top: 15px;
+	}
+	svg#sculp3 {
+	    left: 32.5px;
+	    top: 14px;
+	}
+	.scale {
+	    padding: 0 15px;
+	}
+	.indicator {
+	    margin: 0 0 8px;
+	}
+	.graft_cstm .div-left {padding-left: 15px;}
+.graft_cstm .div-right {padding-right: 15px;}
+.graft_cstm ul.steps li {font-size: 13px;}
+.graft_cstm .face-interface {padding: 0 5px;}
+.graft_cstm .btn {width: auto;}
+.graft_cstm .scale {padding: 0 15px;}
+.graft_cstm h4.txt-shadow {margin-top: 4px;margin-bottom: 10px;}
+
+	
+}
+@media screen and (max-width:443px) {	
+	.face-interface .face {
+	    height: 175px;
+	}
+	svg#sculp1{
+		top:-1px;
+	}
+	svg#sculp2{
+		top:7px;
+	}
+	svg#sculp3{
+		top:6px;
+	}
+}

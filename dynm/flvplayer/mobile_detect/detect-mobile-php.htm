@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+
+
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8">
+  <meta http-equiv="cache-control" content="max-age=200">
+
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+  <link rel="shortcut icon" href="http://www.hand-interactive.com/favicon.ico"><title>Detecting Mobile Devices Using PHP :: Hand Interactive Resources</title>
+
+  
+
+  <meta name="description" content="Hand Interactive: Detecting Mobile Devices Using PHP.">
+
+<meta name="keywords" content="user experience design, user interface design, information design, information archiecture, usability, user research, personas, card sorting, interviews, heuristic evaluation, web site evaluation, ethnography, human factors, man-machine interface, human-computer interaction, HCI, MMI, mobile, UX, Android, Symbian S60, Windows Mobile, BlackBerry, Java, J2ME, UIQ, PalmOS, Apple iPhone, smartphone, feature phone, Windows Mobile PocketPC, Windows Mobile Smartphone, Windows Mobile Standard, Windows Mobile Professional"><!-- **** layout stylesheet **** -->
+
+
+  
+  <link rel="stylesheet" type="text/css" href="detect-mobile-php_files/style.css"><!-- **** colour scheme stylesheet **** -->
+
+  
+  <link rel="stylesheet" type="text/css" href="detect-mobile-php_files/green.css"><!--[if lt IE 7]>
+    <script defer type="text/javascript" src="../js/pngfix.js"></script>
+  <![endif]--></head><body>
+  <div id="main">
+    <div id="links">
+      <!-- **** INSERT TOP BAR LINKS HERE **** -->
+      <a href="mailto:ahand@hand-interactive.com">contact</a> | <a href="http://www.hand-interactive.com/m/resources/detect-mobile-php.htm">Mobile Version</a>
+    </div>
+
+
+    <div id="logo"><h1>Hand Interactive</h1><h2>User Experience Consulting</h2></div>
+
+
+    <div id="menu">
+        <!-- INSERT MENU -->
+              <ul>
+        <!-- **** INSERT NAVIGATION ITEMS HERE (use id="selected" to identify the page you're on **** -->
+        <li><a href="http://www.hand-interactive.com/">Home</a></li>
+        <li><a href="http://www.hand-interactive.com/services.htm">Services</a></li>
+        <li><a href="http://www.hand-interactive.com/portfolio.htm">Portfolio</a></li>
+        <li><a id="selected" href="http://www.hand-interactive.com/resources.htm">Resources</a></li>
+        <li><a href="http://www.hand-interactive.com/about.htm">About</a></li>
+      </ul>
+    </div>
+
+
+    <div id="content">
+
+      <!-- START MAIN CONTENT -->
+      <div id="column2">
+
+        <p>&nbsp;</p>
+
+        <h1>
+          Detecting Mobile Devices Using PHP
+        </h1>
+
+
+        <p>
+            <em>Updated November 2009</em>
+        </p>
+
+
+        <p>
+Don't you wish there were an easy way to detect whether your web site
+visitor is connecting with a desktop PC or a mobile device of some
+sort? </p>
+
+        <p>
+            The good news is that using <strong>PHP</strong> (or another server-based scripting language), it's sort of easy to detect <strong>some</strong>
+devices by parsing the UserAgent string. Because the code is run on the
+server rather than in the browser itself (such as JavaScript), these
+PHP-based techniques yield better reliability in detecting mobile
+devices. Just remember that there are lots of important caveats,
+including: </p>
+
+        <ul>
+           <li>These technqniques depend
+on the contents of the UserAgent string. As a result, these techniques
+may not work if the browser is emulating a different one (e.g., some
+mobile browsers can be set to emulate Internet Explorer). </li>
+           <li>Mobile
+operators can also change the UserAgent contents when the device is
+customized for their networks and added to their stock device
+portfolio. Operators also sometimes change the UserAgent value as the
+page request passes through their networks.</li>
+           <li>UserAgent
+strings are moving targets. Once implemented, you'll need to monitor
+the effectiveness of your code against the list of your high priority
+devices or platforms.</li>
+        </ul>
+
+
+        <br>
+
+        <h2>Alternatives</h2>
+
+        <p>
+The PHP code in this article is great if you're only concerned about
+the class of device (e.g., smartphone or not), or the mobile platform
+(e.g., iPhone or Symbian S60). If you need detailed device information
+or usage metrics, you may wish to check out HandsetDetection.com or
+WURFL (<a href="#handsetdetection">see below for more info</a>).
+        </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <h2>Introducing the "uagent_info" Class</h2>
+
+        <p>
+            I created a PHP class called <strong>"uagent_info"</strong>
+to encapsulate the logic for detecting mobile devices. This class is
+easy to use and its API is highly modularized so that you can detect <strong>broad classes</strong> of devices (such as smartphones or WAP/WMP-capable devices), <strong>specific platforms</strong> (such as the iPhone/iPod Touch, Symbian S60 or BlackBerry). 
+        </p>
+
+        <p>
+            Here is a sample block of the code so you can see how it is organized: 
+        </p>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+//**************************
+// The uagent_info class encapsulates information about
+//   a browser's connection to your web site. 
+//   The object's methods return 1 for true, or 0 for false.
+class uagent_info
+{
+   //Stores some info about the browser and device.
+   var $useragent = "";
+
+   //Stores info about what content formats the browser can display.
+   var $httpaccept = ""; 
+
+   // Standardized (and configurable) values for true and false.
+   var $true = 1;
+   var $false = 0;
+
+   // A long list of strings which provide clues 
+   //   about devices and capabilities.
+   var $deviceIphone = 'iphone';
+   var $deviceIpod = 'ipod';
+
+   // [ SNIP! Other variables snipped out ] 
+
+
+   //**************************
+   //The constructor. Initializes several default variables.
+   function uagent_info()
+   { 
+       $this-&gt;useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
+       $this-&gt;httpaccept = strtolower($_SERVER['HTTP_ACCEPT']);
+   }
+
+   //**************************
+   //Returns the contents of the User Agent value, in lower case.
+   function Get_Uagent()
+   { 
+       return $this-&gt;useragent;
+   }
+
+   //**************************
+   // Detects if the current device is an iPhone.
+   function DetectIphone()
+   {
+      if (stripos($this-&gt;useragent, $this-&gt;deviceIphone) &gt; -1)
+      {
+         //The iPod touch says it's an iPhone! So let's disambiguate.
+         if ($this-&gt;DetectIpod() == $this-&gt;true)
+         {
+            return $this-&gt;false;
+         }
+         else
+            return $this-&gt;true; 
+      }
+      else
+         return $this-&gt;false; 
+   }
+
+   // [ SNIP! Other functions snipped out ] 
+
+}
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+        <p>&nbsp;</p>
+
+
+        <h2>Using the "uagent_info" Class</h2>
+
+        <p>
+            First, instantiate the uagent_info object, then call one of its functions. The device detection functions return <strong>1</strong> for true or <strong>0</strong> for false. It's as simple as that! Here's an example:
+        </p>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+//Instantiate the object to do our testing with.
+$uagent_obj = new uagent_info();
+
+//Let's detect an iPhone.
+//This will return a 1 for true or 0 for false.
+$iPhone = $uagent_obj-&gt;DetectIphone();
+
+//Do some logic with it now, such as print it.
+print("&lt;p&gt;You're using an iPhone: ".$iPhone."&lt;/p&gt;");
+
+//You might also want to print out the user agent string.
+$agent = $uagent_obj-&gt;Get_Uagent();
+print("&lt;p&gt;Your user agent string: &lt;br /&gt; ".$agent."&lt;/p&gt;");
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+        <br>
+
+        <p>
+            Let's put the PHP code through its paces below!
+        </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="iphone"></a>
+        <h2>Detect iPhone &amp; iPod Touch</h2>
+
+        <p>
+Use the following code to detect whether the device viewing the page is
+an iPhone and/or iPod Touch. And don't forget: iPod Touches are
+devices, too! </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong> <a href="http://www.apple.com/iphone/features/safari.html" target="mobiledev">Mobile Safari</a>
+is based on WebKit and can render most desktop-targeted web content
+very well (generally excluding heavy AJAX pages). Don't send users to
+barebones WAP/WML pages! Instead, give iPhone users regular desktop
+pages, iPhone-optimized content or <em>nicely formatted</em> mobile-optimized content.
+        </p>
+
+        <ul class="indent">
+           <li>You're using an iPhone: <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>You're using an iPod Touch: <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>You're using an iPhone: <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+        </ul>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the current device is an iPhone.
+$uagent_obj-&gt;DetectIphone();
+
+// Detects if the current device is an iPod Touch.
+$uagent_obj-&gt;DetectIpod();
+
+// Detects if the current device is an iPhone or iPod Touch.
+$uagent_obj-&gt;DetectIphoneOrIpod());
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+
+        <p>&nbsp;</p>
+        
+        
+                <a name="android"></a>
+        <h2>Detect Android Devices</h2>
+
+        <p>
+Besides the iPhone, the only other mobile devices in recent times to
+receive as much attention, both from geeky fanboys and the general
+public, have been the new devices running Android. Android is a brand
+new operating system for mobile phones created by Google. Android is a
+smartphone-class OS with an advanced browser similar to the iPhone's in
+capabilities. </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong>
+The native Android browser is extremely capable and also based on
+WebKit, which underlies the iPhone's Mobile Safari &amp; the S60
+browser. Generally, if you have web content optimized for the iPhone,
+also make this content available for Android devices. Additional
+manufacturers began releasing loads of new Android devices in mid-2009.
+</p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using an Android device: 
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using an Android device with a WebKit-based browser: 
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the current browser is on an Android-powered device.
+$uagent_obj-&gt;DetectAndroid();
+
+// Detects if the current browser is WebKit-based on 
+//   an Android-powered device.
+$uagent_obj-&gt;DetectAndroidWebKit();
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="s60"></a>
+        <h2>Detect Symbian S60 Smartphones</h2>
+
+        <p>
+The most popular smartphone platform in the world is Symbian S60. Used
+primarily by Nokia and a few other manufacturers, S60 features a very
+capable browser. </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong> The <a href="http://www.s60.com/life/thisiss60/s60indetail/technologiesandfeatures/webrowser/" target="mobiledev">S60 Open Source Browser</a>
+is based on WebKit and can render most desktop-targeted web content
+very well (generally excluding heavy AJAX pages). Don't send users to
+barebones WAP/WML pages! Instead, give S60 users regular desktop pages
+or <em>nicely formatted</em> mobile-optimized content.
+        </p>
+
+        <ul class="indent">
+           <li>You're using the WebKit browser on an S60 device: <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>You're
+using any Symbian OS-based device, including older S60, UIQ devices
+(loaded with Opera by default), or the S60 WAP browser: <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+        </ul>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the current browser is the Nokia S60 Open Source Browser.
+$uagent_obj-&gt;DetectS60OssBrowser();
+
+// Detects if the current device is any Symbian OS-based device,
+//   including older S60, Series 70, Series 80, Series 90, and UIQ, 
+//   or other browsers running on these devices.
+$uagent_obj-&gt;DetectSymbianOS();
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+        
+
+        <p>&nbsp;</p>
+
+
+        <a name="windowsmobile"></a>
+        <h2>Detect Windows Mobile Devices</h2>
+
+        <p>
+Devices running Windows Mobile are fairly popular in the U.S.,
+especially among business users. This code detects both the non-touch
+screen (Standard/Smartphone) and touch screen (Professional/PocketPC)
+types of devices. </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong> <a href="http://www.microsoft.com/windowsmobile/en-us/downloads/microsoft/internet-explorer-mobile.mspx" target="mobiledev">Pocket Internet Explorer</a> and <a href="http://www.opera.com/products/mobile/" target="mobiledev">Opera for Windows Mobile</a>
+are moderately capable mobile browsers. Don't send users to barebones
+WAP/WML pages! Instead, give these users either modest desktop pages
+(avoid AJAX and complicated CSS) or <em>nicely formatted</em> mobile-optimized content. (The latter is probably the better choice.)
+        </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using a Windows Mobile device: 
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the current browser is a Windows Mobile device.
+$uagent_obj-&gt;DetectWindowsMobile();
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="blackberry"></a>
+        <h2>Detect BlackBerry Devices</h2>
+
+        <p>
+The most popular smartphone platform in the United States. (Still beats
+the iPhone in sales!) Unfortunately, the BlackBerry browser isn't
+great. </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong>
+Although the browser isn't as capable as the WebKit ones noted above,
+it can display nicely (but minimally!)-formatted mobile-optimized
+content. At least when the browser is set to HTML mode! Otherwise, in
+WML-only mode, it should be sent the barebones WAP/WML pages. </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using a BlackBerry:
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using a BlackBerry Touch (Storm 1/2):
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the device is a BlackBerry.
+$uagent_obj-&gt;DetectBlackBerry();
+
+// Detects if the device is specifically a BlackBerry Touch
+// device, such as the Storm 1 or 2.
+$uagent_obj-&gt;DetectBlackBerryTouch();
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="palm"></a>
+        <h2>Detect PalmOS and WebOS Devices</h2>
+
+        <p>
+Last but not least in the smartphone category are devices from Palm.
+Palm has a new Linux-based operating system for its touchscreen phones
+launched in mid-2009 call "WebOS". The Pre and the Pixi are the first
+two WebOS devices. In addition, there is a large installed base of old
+PalmOS devices. </p>
+
+        <p class="indent">
+            <strong>Why detect this browser?</strong>
+The new WebOS browser shares the same WebKit core as the iPhone's and
+Android's browsers, though it appears slightly less capable than they
+are. Still, if a web site is optimized for the iPhone and Android, it
+may run well on WebOS devices, too. As for older PalmOS devices, I
+recommend sending them <em>minimally formatted</em> mobile-optimized content. 
+        </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using a Palm WebOS device:
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <p class="indent">
+            <strong>Test:</strong> You're using a PalmOS device:
+
+<span class="orange" style="font-weight: bold;">
+               false</span>
+        </p>
+
+        <!-- START CODE BLOCK -->
+        <div class="codeitem">
+
+<pre><xmp>
+// Detects if the current browser is on a Palm WebOS device.
+$uagent_obj-&gt;DetectPalmWebOS();
+
+// Detects if the current browser is on a PalmOS device.
+$uagent_obj-&gt;DetectPalmOS();
+</xmp></pre>
+
+        <!-- END CODE BLOCK -->
+        </div>
+
+
+        <p>&nbsp;</p>
+
+
+
+        <a name="generaltest"></a>
+        <h2>Additional API Testing</h2>
+
+        <p>
+Now that we've seen the general pattern for how to use our PHP
+uagent_info object, let's see the full list of what it can detect. In
+the interest of space, we won't show the code for each. (But you can <a href="#download">download it</a> above!)
+        </p>
+
+        <ul class="indent">
+           <li>This is any smartphone-class device, DetectSmartphone(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This device's browser is based on WebKit, DetectWebkit(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>Quick
+check to see if this is a mobile device. Ought to detect most modern
+mass market phones and smartphones, DetectMobileQuick(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>Longer,
+more thorough check to see if this is a mobile device. Ought to include
+the Nokia Internet Tablet and game consoles, DetectMobileLong(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This device's browser supports WAP/WML content, DetectWapWml(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This device supports Java MIDP, DetectMidpCapable(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This device is BREW-powered, DetectBrewDevice(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This is a Danger Hiptop, DetectDangerHiptop(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This is a Nokia Internet Tablet (770, N800, or N810), DetectMaemoTablet(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This is a Sony Mylo, DetectSonyMylo(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This is an Archos media player/tablet, DetectArchos(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+           <li>This is a game console (e.g., Xbox, Wii, Nintendo DS, PSP), DetectGameConsole(): <span class="orange" style="font-weight: bold;">
+               false           </span></li>
+
+
+        </ul>
+
+
+
+        <p>&nbsp;</p>
+
+
+        <h2>Your UserAgent String</h2>
+
+        <p>
+            It would probably help to know what your browser is reporting in it's UserAgent string...
+        </p>
+
+        <p class="indent">
+<span class="orange" style="font-weight: bold;">
+               "mozilla/5.0 (x11; u; linux i686; en-us; rv:1.8.1.3) gecko/20070417 fedora/2.0.0.3-4.fc7 firefox/2.0.0.3"</span>
+        </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="handsetdetection"></a>
+        <h2>HandsetDetection.com</h2>
+
+        <p>
+            If you have the technical chops, you might consider registering with a very good (and <strong>free</strong>!) service called <a href="http://www.handsetdetection.com/" target="mobiledev">HandsetDetection.com</a>
+and integrating their service into your site. The service can tell you
+not only what class of device is visiting your site, but also what the
+manufacturer and model number are, tons of additional details (e.g.,
+screen size), and even the geolocation of the device. Plus, the site
+offers lots of reporting metrics about visitor devices. Hand
+Interactive doesn't currently have any affiliation with them, but we
+thought you should know about this cool service anyway! </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <a name="wurfl"></a>
+        <h2>WURFL</h2>
+
+        <p>
+            The most comprehensive source for mobile device (browser and otherwise) is probably <a href="http://wurfl.sourceforge.net/" target="mobiledev">WURFL</a>.
+It's an excellent free &amp; open source project with an active user
+community that is constantly updating its device database. WURFL is
+also a more heavy weight implementation than our PHP code, but can
+provide detailed handset statistics. (HandsetDetection.com also uses
+WURFL!) </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <h2>UserAgent String Resource</h2>
+
+        <p>
+            Zytrax has a fairly comprehensive list of UserAgent values for mobile devices: <a href="http://www.zytrax.com/tech/web/mobile_ids.html" target="mobiledev">www.zytrax.com/tech/web/mobile_ids.html</a>
+        </p>
+
+
+        <p>&nbsp;</p>
+
+        <a name="download"></a>
+        <h2>Enjoy the fun at home!</h2>
+
+        <p>
+            <strong>Download the PHP code</strong> described here from our new <a href="http://code.google.com/p/mobileesp/" target="_new">Google Code page</a>!
+        </p>
+
+        <p class="indent">
+            <strong>Note:</strong> We've <em>casually</em>
+tested this code on all of the major smartphone platforms and a handful
+of mass market phones, plus the Nokia Internet Tablets. So far so good!
+</p>
+
+        <p class="indent"> That being said, the most
+important caveat is that you should thoroughly test the code for
+yourself based on your own needs and expectations -- and always using
+your high priority target devices! </p>
+
+        <p class="indent"> And if you find this code
+useful, please consider donating so we can purchase additional devices
+on our testing wishlist! <br>
+
+</p><div align="center">
+
+          <!-- INSERT DONATE BUTTON  -->
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input src="detect-mobile-php_files/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" border="0" type="image">
+<img alt="" src="detect-mobile-php_files/pixel.gif" border="0" height="1" width="1">
+<input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+" type="hidden">
+</form>
+
+</div>
+
+        
+
+
+        <br>
+
+
+        <h2> License Info &amp; Costs</h2>
+
+        <p>
+We have moved this code library to a Google Code hosting project and
+changed the license to an Apache License 2.0, which better fits a <strong>free, open source project</strong> like this. We've also rechristened this project <strong>"MobileESP."</strong> For more info, please visit the new MobileESP site: <a href="http://www.mobileesp.org/">www.mobileESP.org</a>
+        </p>
+
+
+        <p>&nbsp;</p>
+
+
+        <h2>Market Share Statistics</h2>
+
+        <ul>
+           <li><strong>U.S. Market Share, Q1 2008:</strong> Read this article at <a href="http://www.informationweek.com/news/personal_tech/smartphones/showArticle.jhtml?articleID=208401284" target="mobiledev">InformationWeek, May 30, 2008</a>.</li>
+           <li><strong>World Market Share, Q4 2007:</strong> See this press release from <a href="http://canalys.com/pr/2008/r2008021.htm" target="mobiledev">Canalys, February 5, 2008</a>.</li>
+        </ul>
+
+
+        <br>
+
+
+      <!-- END COLUMN 2 -->
+      </div>
+
+
+
+      <div id="column1">
+
+
+          <!-- INSERT ARTICLE LIST -->
+                  <div class="sidebaritem">
+          <!-- rounded corners - top **** -->
+          <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+	  <!-- SIDEBAR CONTENT. H1 IS THE GREEN HEADING. -->
+          <h1>Mobile Resource Articles</h1>
+	    <div align="center">
+            <p><a href="http://www.hand-interactive.com//files/MoMoChicago_iPhone_vs_Android_April_2009.pdf" title="Provides a head-to-head comparison of Android and the iPhone. Presented at the Mobile Mondays Chicago chapter meeting, April 27, 2009.">Android vs. iPhone Presentation (PDF download)</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/mobile-web-access.htm" title="There are a few best practices for naming directories and sub-domains so that your mobile users can guess the URL for your mobile-optimized web site.">Best Practices in Mobile Web Site Access</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-php.htm" title="Use PHP to detect what kind of a mobile device is viewing your web content.">Detecting Mobile Devices Using PHP</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-java.htm" title="Use Java to detect what kind of a mobile device is viewing your web content.">Detecting Mobile Devices Using Java</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-javascript.htm" title="Use JavaScript to detect what kind of a smartphone is viewing your web content.">Detecting Smartphones Using JavaScript</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/mobile-developers.htm" title="A list of mobile application development firms, focusing on those with a presence in New England.">Mobile Application Development Firms</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/mobile-screen-captures.htm" title="A collection of software programs and secret commands.">Screen Captures on Mobile Phones</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/setting-up-unlocked-phone.htm" title="When you buy the phone unlocked, you're also responsible for getting it to work on the network. Here are a few tips.">Setting Up an Unlocked Phone</a></p>
+	    </div>
+
+          <!-- rounded corners - bottom **** -->
+          <div class="rbottom"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+        </div>
+
+
+          <!-- INSERT CODE DOWNLOAD INFO -->
+                  <div class="sidebaritem">
+          <!-- rounded corners - top **** -->
+          <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+	  <!-- SIDEBAR CONTENT. H1 IS THE GREEN HEADING. -->
+          <h1>Downloads</h1>
+	    <div align="center">
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-php.htm#download" title="Code for detecting mobile devices using PHP.">PHP Code</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-java.htm#download" title="Code for detecting mobile devices using Java.">Java Code</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-aspnet.htm#download" title="Code for detecting mobile devices using ASP.NET and C#.">ASP.NET Code</a></p>
+            <p><a href="http://www.hand-interactive.com/resources/detect-mobile-javascript.htm#download" title="Code for detecting mobile devices using JavaScript.">JavaScript Code</a></p>
+	    </div>
+
+          <!-- rounded corners - bottom **** -->
+          <div class="rbottom"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+        </div>
+
+
+        <div class="sidebaritem">
+          <!-- rounded corners - top **** -->
+          <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+	  <!-- SIDEBAR CONTENT. H1 IS THE GREEN HEADING. -->
+          <h1>MobileESP Project</h1>
+	    <div align="center">
+            <p><a href="http://www.mobileesp.org/" title="MobileESP">Learn more about the new MobileESP project!</a></p>
+            <p>We've
+spun off our mobile device detection code into a FREE open source
+project called MobileESP! Learn more about it on the new project web
+site.</p>
+	    </div>
+
+          <!-- rounded corners - bottom **** -->
+          <div class="rbottom"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+        </div>
+
+          <!-- INSERT DONATION REQUEST -->
+                  <div class="sidebaritem">
+          <!-- rounded corners - top **** -->
+          <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+	  <!-- SIDEBAR CONTENT. H1 IS THE GREEN HEADING. -->
+
+
+          <a name="donate"></a>
+          <h1>Please Donate</h1>
+	    <div align="center">
+            <p>
+               If you like and use this code, please consider donating. Any amount is appreciated!</p>
+
+        <p>
+
+          <!-- INSERT DONATE BUTTON  -->
+          </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input src="detect-mobile-php_files/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" border="0" type="image">
+<img alt="" src="detect-mobile-php_files/pixel.gif" border="0" height="1" width="1">
+<input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+" type="hidden">
+</form>
+
+        
+
+
+            <p style="font-style: italic;">
+               (Please donate -- help us purchase more devices on our testing wishlist!)
+            </p>
+
+
+	    </div>
+
+          <!-- rounded corners - bottom **** -->
+          <div class="rbottom"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+        </div>
+
+
+          <!-- INSERT ABOUT US -->
+                  <div class="sidebaritem">
+          <!-- rounded corners - top **** -->
+          <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+	  <!-- SIDEBAR CONTENT. H1 IS THE GREEN HEADING. -->
+          <h1>About Us</h1>
+	    <div align="center">
+            <p>Hand
+Interactive offers user experience, usability, and business strategy
+expertise. We're passionate about crafting engaging experiences for
+mobile, desktop, and web users.</p>
+
+        <p>
+          <a href="mailto:ahand@hand-interactive.com">&nbsp;<br>Contact us for more information.</a>
+        </p>
+
+	    </div>
+
+          <!-- rounded corners - bottom **** -->
+          <div class="rbottom"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+        </div>
+
+      <!-- END SIDEBAR -->
+      </div>
+
+    <!-- END CONTENT -->
+    </div>
+
+    <!-- BEGIN FOOTER -->
+    <div id="footer">
+        <!-- INSERT FOOTER -->
+              © 2008-2009 Anthony Hand (<a href="mailto:ahand@hand-interactive.com">ahand@hand-interactive.com</a>) | <a href="http://www.dcarter.co.uk/" target="_new">design by dcarter</a>    </div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="detect-mobile-php_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5276751-1");
+pageTracker._trackPageview();
+</script>
+
+</div></body></html>

@@ -1,0 +1,65 @@
+a
+			{ 
+			color:##353535;
+			text-decoration:none;
+			}
+			
+			h3{ 
+			margin: 10px 10px 0 10px; 
+			color:#FFF; 
+			font:13pt Arial, sans-serif; 
+			letter-spacing:-1px; 
+			font-weight: bold;  
+			}
+				h4{ 
+			margin: 5px 10px 3px 10px; 
+			color:#FFF; 
+			font:11px Arial, sans-serif; 
+			font-weight: bold;
+			letter-spacing:1px;
+			
+			}
+			
+			.boxgrid{ 
+				width: 218px; 
+				height: 181px; 
+				float:left; 
+				background:#161613; 
+				overflow: hidden; 
+				position: relative; 
+			}
+			
+				.boxgrid img{ 
+					position: absolute; 
+					top: 0; 
+					left: 0; 
+					border: 0; 
+				}
+				.boxgrid p{ 
+					padding: 0 10px; 
+					color:#fff; 
+					font-weight:bold; 
+					font:10pt "Lucida Grande", Arial, sans-serif; 
+				}
+				
+			.boxcaption{
+	float: left;
+	position: absolute;
+	background: #63a9ca;
+	height: 100px;
+	width: 100%;
+	opacity: 100;
+	border-top:1px solid #fff;
+				/* For IE 5-7 */
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	/* For IE 8 */
+				-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+ 			}
+ 				.captionfull .boxcaption {
+	top: 180px;
+	left: 0;
+ 				}
+ 				.caption .boxcaption {
+ 					top: 220;
+ 					left: 0;
+ 				}

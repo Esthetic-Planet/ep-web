@@ -1,0 +1,139 @@
+/*NAROLA INFOTECH 2016*/
+.calc-wrapper{width: 740px;height: 646px;display: inline-block;margin: 20px 0;background-image: url('https://www.hairlosslearningcenter.org/mm/img/calc-bg.png');color: #fff;}
+.calc-wrapper h3{margin-top: 30px;margin-bottom: 0px;font-weight: bold;text-shadow: 1px 1px 2px rgba(0,0,0,0.8);}
+.selected-area {background-color: rgba(255,255,255,.3);min-height: 196px;margin-top: 15px;border: 1px solid #000;padding: 0 10px;}
+.selected-area ul>li{margin-bottom: 6px;padding: 0 3px;line-height: 1.2;}
+.selected-area ul>li span{opacity: 0;}
+.selected-area ul>li.active{background-color: #0f1ea8;}
+.selected-area ul>li.active span{opacity: 1;}
+.calc-wrapper ul {list-style: none;padding: 0;text-align: left;}
+.steps li>span{color: #ffcc00;}
+.steps {margin-top: 15px;}
+.div-left{padding-left: 65px;}
+.div-right{padding-right: 65px;}
+.div-right p{margin-bottom: 5px;font-size: 13px;}
+.btn-orange,.btn-small{background-color: #ff9900;border-radius: 0;border:1px solid #fff;margin-bottom: 5px;padding: 2px 12px;width: 100%; color:#fff;}
+.btn-small{background-color: #d98226;padding: 1px 12px;font-size: 13px;}
+.btn-orange:hover,
+.btn-small:hover,
+.btn-orange:focus,
+.btn-small:focus{color: #fff;}
+.btn-small:hover{
+  -webkit-animation: blinking 1100ms infinite;
+  -moz-animation: blinking 1100ms infinite;
+  -o-animation: blinking 1100ms infinite;
+  animation: blinking 1100ms infinite;
+}
+.div-right .form-control{border-radius: 0;background-color: rgba(255,255,255,0.6);border: none;height: 26px; color: #fff;}
+.pr5{padding-right: 5px;}
+.face-interface p{color: #ffcc33;}
+.btn-blinking{
+  -webkit-animation: blinking 1100ms infinite;
+  -moz-animation: blinking 1100ms infinite;
+  -o-animation: blinking 1100ms infinite;
+  animation: blinking 1100ms infinite;
+}
+@-webkit-keyframes blinking {
+  0% { background-color: #ff9900;}
+  50% { background-color: #f6e02f;}
+  100% { background-color: #ff9900;}
+}
+@-moz-keyframes blinking {
+  0% { background-color: #ff9900; }
+  50% { background-color: #f6e02f; }
+  100% { background-color: #ff9900; }
+}
+@-o-keyframes blinking {
+  0% { background-color: #ff9900; }
+  50% { background-color: #f6e02f; }
+  100% { background-color: #ff9900;}
+}
+@keyframes blinking {
+  0% { background-color: #ff9900; }
+  50% { background-color: #f6e02f; }
+  100% { background-color: #ff9900; }
+}
+.txt-shadow{text-shadow: 1px 2px 1px rgba(0,0,0,0.6);}
+.scale {padding: 0 85px;}
+.face-interface{padding: 0 65px;}
+.face-interface .face {height: 220px; width: 33%; float: left; background-repeat: no-repeat; background-position: center; position: relative;}
+.ui-slider-horizontal{height: 10px;}
+.ui-widget-content{border-bottom:none; border-radius: 0; border-color: #fff; background: none;}
+.ui-widget-header{background: none;}
+.ui-slider-horizontal .ui-slider-handle {
+  top: -8px;
+  width: 17px;
+  height: 14px;
+  -webkit-animation: blinking 500ms infinite;
+  -moz-animation: blinking 500ms infinite;
+  -o-animation: blinking 500ms infinite;
+  animation: blinking 500ms infinite;
+}
+.ui-slider-horizontal .ui-slider-handle:focus{
+  /*animation:none;
+  background-color: #333;*/
+  outline: none;
+}
+h4.txt-shadow {font-size: 14px;}
+.indicator span {display: inline-block;width: 33.33%;font-size: 11px;float: left;}
+.indicator:after{display: table;content: "";clear: both;}
+.indicator span:first-child{text-align: left;}
+.indicator span:last-child{text-align: right;}
+.indicator {font-weight: bold;margin: 0 -20px 8px;}
+.scale-slide{height: 18px;width: 100%;background-image: url('../img/scale.png');background-repeat: no-repeat;background-size: 100%;}
+#graft1, #graft2, #graft3, #graft4, #graft5, #graft6, #graft7 {
+    float: right;
+    width: 24%;
+    text-align: right;
+}
+#hair1, #hair2, #hair3, #hair4, #hair5, #hair6, #hair7 {
+    float: right;
+    width: 24%;
+    text-align: right;
+    margin-right: 15%;
+}
+svg#sculp1 {position: absolute;top: 22px;left: 44px;}
+svg#sculp2 {position: absolute;top: 29px;left: 51px;}
+svg#sculp3 {position: absolute;top: 29px;left: 48.5px;}
+.face svg a path{fill: transparent !important;}
+.face svg a:focus>path,
+.face svg a:hover>path{fill:#cc6600;}
+.face svg a:focus,
+.face svg a:hover{text-decoration: none;}
+.face svg a.activearea>path{fill:#cc6600 !important;}
+.face1{background-image: url('img/face1.png');}
+.face2{background-image: url('img/face2.png');}
+.face3{background-image: url('img/face3.png');}
+.selected-area h5 {border-bottom: 1px solid #fff;}
+.selected-area h4 {font-size: 15px;margin: 76px 0;}
+
+
+.content_details .graft_cstm h3{margin-top: 30px;margin-bottom: 0px;font-weight: bold;text-shadow: 1px 1px 2px rgba(0,0,0,0.8);font-size: 24px;color: #fff;}
+.question_title.col-sm-10 {text-align: center;}
+.graft_cstm .div-left {padding-left: 65px;}
+.graft_cstm .div-right {padding-right: 65px;}
+.graft_cstm  .selected-area h4 {font-size: 13px;}
+.graft_cstm  ul.steps {list-style: none;padding: 0;text-align: left;}
+.graft_cstm  ul.steps li:before {opacity: 0;display:none;}
+.graft_cstm  ul.steps li {font-size: 13px;color: #fff;margin: 0;}    
+.graft_cstm .btn {background-color: #ff9900;border-radius: 0;border: 1px solid #fff;margin-bottom: 5px;padding: 2px 12px;width: 100%;color: #fff;}
+.content_details .graft_cstm p {font-size: 13px;color: #fff;line-height: 14px;margin: 5px 0;}
+.graft_cstm .face-interface {padding: 0 65px;}
+.content_details .graft_cstm .face-interface p {font-size: 12px;text-align: center;margin: 0;color: #ffcc33;margin-bottom: 5px;}
+.graft_cstm .scale {padding: 0 85px;}
+.graft_cstm .indicator span {color: #fff;}
+.graft_cstm h4.txt-shadow {font-size: 12px;margin-top: 8px;}
+.graft_cstm .selected-area h5 {border-bottom: 1px solid #fff;margin-top: 10px;margin-bottom: 10px;}
+.content_details .graft_cstm ul {padding: 0;}
+.content_details .question_title.graft_cstm ul li:before {display: none;}
+.content_details .question_title.graft_cstm ul li {margin-bottom: 6px;padding: 0 3px;line-height: 1.2;margin-top: 0;color: #fff;font-size: 13px;}
+.content_details .graft_cstm span {color: #fff;}
+
+
+
+@media (max-width:360px){ 
+.indicator span:first-child {width: 24%;}
+.indicator span:nth-child(2) {width: 38%;}
+.indicator span:nth-child(3) {width: 38%;}
+.indicator span {font-size: 10px;}
+}
